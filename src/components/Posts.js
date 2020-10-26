@@ -1,10 +1,11 @@
 import React from 'react';
 
-class Posts extends React.Component {
+function Posts() {
 
-    render() {
-        return <div>Post</div>
-    }
+    return (
+        <div>Post</div>
+    )
+
 } 
 
 export default Posts;
