@@ -10,10 +10,15 @@ class PostsContainer extends React.Component {
     }
 
     render() {
-        return <div><Posts /></div>
+        return <div><Posts posts={this.props.posts}/> </div>
     }
 } 
 
+const mapStateToProps = state => {
+    return {
+        posts: state.posts
+    }
+}
 
 
-export default connect(null, {fetchPosts})(PostsContainer);
+export default connect(mapStateToProps, {fetchPosts})(PostsContainer);

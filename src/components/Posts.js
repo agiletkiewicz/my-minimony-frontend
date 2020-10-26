@@ -1,9 +1,14 @@
 import React from 'react';
+import Post from './Post'
 
-function Posts() {
+function Posts(props) {
 
     return (
-        <div>Post</div>
+        <div>
+            {props.posts.map( post => (
+                <Post key={post.id} post={post} />
+            ))}
+        </div>
     )
 
 } 

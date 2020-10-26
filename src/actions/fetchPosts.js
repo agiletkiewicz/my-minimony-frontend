@@ -9,6 +9,5 @@ export function fetchPosts() {
             posts: parsedResp
         }))
     }
-
-
+    
 }
