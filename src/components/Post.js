@@ -1,15 +1,23 @@
 import React from 'react';
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
 
 function Post(props) {
-
     return (
-        <div> 
-            <a href={props.post.url}>
-                <img src={props.post.image_url} />
+        <Card>
+            <a href={props.post.url} target="_blank">
+                <Card.Img src={props.post.image_url} />
             </a>
-            <h1>{props.post.title}</h1>
-            <p>{props.post.description}</p>
-        </div>
+            <Card.ImgOverlay>
+                <Button variant="primary" size="sm" disabled>
+                    Save
+                </Button>{' '}
+            </Card.ImgOverlay>
+            <Card.Body>
+                <Card.Title>{props.post.title}</Card.Title>
+                <Card.Text>{props.post.description}</Card.Text>
+            </Card.Body>
+        </Card>
     )
 
 } 
