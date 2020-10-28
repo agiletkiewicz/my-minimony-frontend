@@ -27,7 +27,7 @@ class App extends React.Component {
         <Router>
             <NavBar />
             <Route exact path="/" component={PostsContainer} />
-            <Route path="/posts/new" component={PostsInput} />
+            <Route exact path="/posts/new" component={PostsInput} />
             <Route path="/posts/:id" render = {this.renderPost} />
         </Router>
       </div>
