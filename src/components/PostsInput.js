@@ -9,7 +9,7 @@ import Container from 'react-bootstrap/Container';
 class PostsInput extends React.Component {
 
     constructor(props) {
-        super();
+        super(props);
         this.state = {
             title: "",
             description: "",
