@@ -4,7 +4,7 @@ const PostShow = props => {
  
   return (
     <div>
-      <h3>Post Show Component!</h3>
+      <h3>{props.post.title}</h3>
     </div>
   );
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import Posts from '../components/Posts'
 import { fetchPosts } from '../actions/fetchPosts';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 class PostsContainer extends React.Component {
 
@@ -10,7 +11,7 @@ class PostsContainer extends React.Component {
     }
 
     render() {
-        return <div><Posts posts={this.props.posts}/> </div>
+        return <div><Posts posts={this.props.posts}/></div>
     }
 } 
 

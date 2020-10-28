@@ -1,15 +1,14 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
-import { Route } from 'react-router-dom';
-import PostShow from './PostShow'
+import { Link } from 'react-router-dom';
 
 function Post(props) {
     return (
+        <div>
+       <Link to={`/posts/${props.post.id}`}>
         <Card>
-            <a href={props.post.url} target="_blank">
-                <Card.Img src={props.post.image_url} />
-            </a>
+            <Card.Img src={props.post.image_url} />
             <Card.ImgOverlay>
                 <Button variant="primary" type="submit" size="sm" disabled>
                     Save
@@ -20,6 +19,8 @@ function Post(props) {
                 <Card.Text>{props.post.description}</Card.Text>
             </Card.Body>
         </Card>
+        </Link>
+        </div>
     )
 
 } 
