@@ -1,6 +1,8 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
+import { Route } from 'react-router-dom';
+import PostShow from './PostShow'
 
 function Post(props) {
     return (
