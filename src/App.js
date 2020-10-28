@@ -9,8 +9,7 @@ import NavBar from './components/NavBar';
 import {
   BrowserRouter as Router,
   Route,
-  Switch,
-  Link
+  Switch
 } from 'react-router-dom';
 
 class App extends React.Component {
