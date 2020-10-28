@@ -4,6 +4,8 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
+import { connect } from 'react-redux';
+import { addPost } from '../actions/addPost';
 
 
 class PostsInput extends React.Component {
@@ -13,18 +15,18 @@ class PostsInput extends React.Component {
         this.state = {
             title: "",
             description: "",
-            imageURL: "",
+            image_url: "",
             url: ""
         }
     }
 
     handleSubmit = (event) => {
         event.preventDefault();
-        console.log(this.state);
+        this.props.addPost(this.state);
         this.setState({
             title: "",
             description: "",
-            imageURL: "",
+            image_url: "",
             url: ""
         });
     }
@@ -47,7 +49,7 @@ class PostsInput extends React.Component {
                         <Form.Label>Description</Form.Label>
                         <Form.Control as="textarea" name="description" onChange={this.handleChange} value={this.state.description}/>
                         <Form.Label>Image URL</Form.Label>
-                        <Form.Control type="text" name="imageURL" onChange={this.handleChange} value={this.state.imageURL}/>
+                        <Form.Control type="text" name="image_url" onChange={this.handleChange} value={this.state.image_url}/>
                         <Form.Label>URL</Form.Label>
                         <Form.Control type="text" name="url" onChange={this.handleChange} value={this.state.url}/>
                         <br />
@@ -63,4 +65,4 @@ class PostsInput extends React.Component {
 
 } 
 
-export default PostsInput;
+export default connect(null, { addPost })(PostsInput);
