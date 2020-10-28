@@ -6,6 +6,8 @@ import Image from 'react-bootstrap/Image'
 import { Link } from 'react-router-dom';
  
 const PostShow = props => {
+
+  const hostURL = new URL(props.post.url).host;
  
   return (
     
@@ -24,7 +26,7 @@ const PostShow = props => {
             <Col>
                 <h3>{props.post.title}</h3>
                 <p>{props.post.description}</p>
-                <a href={props.post.url} target="_blank">Go to website</a>
+            <a href={props.post.url} target="_blank">Go to {hostURL}</a>
             </Col>
         </Row>
     </Container>
