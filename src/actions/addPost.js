@@ -9,5 +9,7 @@ export const addPost = (data) => {
             method: 'POST',
             body: JSON.stringify({post: data})
         })
+        .then(resp => resp.json())
+        .then(data => dispatch({type: 'ADD_POST', post: data}))
     }
 }
