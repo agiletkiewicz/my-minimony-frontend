@@ -2,9 +2,10 @@ import React from 'react';
 import './App.css';
 import { connect } from 'react-redux';
 import { fetchPosts } from './actions/fetchPosts';
-import PostsContainer from './containers/PostsContainer'
-import PostsInput from './components/PostsInput'
-import PostShow from './components/PostShow'
+import PostsContainer from './containers/PostsContainer';
+import PostsInput from './components/PostsInput';
+import PostShow from './components/PostShow';
+import NavBar from './components/NavBar';
 import {
   BrowserRouter as Router,
   Route,
@@ -24,11 +25,10 @@ class App extends React.Component {
     return (
       <div className="App">
         <Router>
-          <Switch>
+            <NavBar />
             <Route exact path="/" component={PostsContainer} />
             <Route path="/posts/new" component={PostsInput} />
             <Route path="/posts/:id" render = {this.renderPost} />
-          </Switch>
         </Router>
       </div>
     );
