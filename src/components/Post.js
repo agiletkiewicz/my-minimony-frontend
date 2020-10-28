@@ -16,7 +16,7 @@ function Post(props) {
             </Card.ImgOverlay>
             <Card.Body>
                 <Card.Title>{props.post.title}</Card.Title>
-                <Card.Text>{props.post.description}</Card.Text>
+            <Card.Text>{props.post.description.slice(0,149)}{props.post.description.length > 149 ? "..." : ""}</Card.Text>
             </Card.Body>
         </Card>
         </Link>
