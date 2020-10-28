@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 function Post(props) {
     return (
         <div>
-       <Link to={`/posts/${props.post.id}`}>
+       <Link to={`/posts/${props.post.id}`} className="home-page">
         <Card>
             <Card.Img src={props.post.image_url} />
             <Card.ImgOverlay>
