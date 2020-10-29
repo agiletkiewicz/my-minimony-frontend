@@ -21,7 +21,7 @@ class App extends React.Component {
   renderPost = (routerProps) => {
     let postId = parseInt(routerProps.match.params.id);
     let post = this.props.posts.find( obj => obj.id === postId );
-    return <PostShow post={post}/>
+    return ( post ? <PostShow post={post}/> : null)
   }
 
   render() {
