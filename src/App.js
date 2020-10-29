@@ -14,6 +14,10 @@ import {
 
 class App extends React.Component {
 
+  componentDidMount() {
+    this.props.fetchPosts();
+}
+
   renderPost = (routerProps) => {
     let postId = parseInt(routerProps.match.params.id);
     let post = this.props.posts.find( obj => obj.id === postId );
