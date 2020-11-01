@@ -36,7 +36,7 @@ class App extends React.Component {
     this.setState({
     isLoggedIn: false,
     user: {}
-    })
+    });
   }
 
   loginStatus = () => {
@@ -63,11 +63,12 @@ class App extends React.Component {
     return ( post ? <PostShow post={post}/> : null)
   }
 
+
   render() {
     return (
       <div className="App">
         <Router>
-            <NavBar />
+            <NavBar loggedInStatus={this.state.isLoggedIn} handleLogout={this.handleLogout}/>
             <Switch>
             <Route exact path="/" component={PostsContainer} />
             <Route exact path="/posts/new" component={PostsInput} />

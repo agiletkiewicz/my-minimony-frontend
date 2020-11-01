@@ -5,16 +5,18 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavItem from 'react-bootstrap/NavItem';
 import axios from 'axios';
 import Nav from 'react-bootstrap/Nav'
-import { Link } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 
 const NavBar = (props) => {
 
+  let history = useHistory();
+
   const handleClick = () => {
     axios.delete('http://localhost:3000/api/v1/logout', {withCredentials: true})
     .then(response => {
-      props.handleLogout()
-      props.history.push('/')
+      props.handleLogout();
+      history.push('/')
     })
     .catch(error => console.log(error))
   }
