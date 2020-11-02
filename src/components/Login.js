@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import FormControl from 'react-bootstrap/FormControl'
 import {Link} from 'react-router-dom'
+
 class Login extends Component {
   constructor(props) {
     super(props);
     this.state = { 
       username: '',
-      name: '',
       password: '',
       errors: ''
      };
@@ -19,10 +22,10 @@ handleChange = (event) => {
   };
 handleSubmit = (event) => {
     event.preventDefault()
-    const {username, name, password} = this.state
+    debugger
+    const {username, password} = this.state
 let user = {
       username: username,
-      name: name,
       password: password
     }
     
@@ -54,46 +57,62 @@ handleErrors = () => {
     )
   }
 render() {
-    const {username, name, password} = this.state
+    const {username, password} = this.state
 return (
-      <div>
-        <h1>Log In</h1>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            placeholder="username"
-            type="text"
-            name="username"
-            value={username}
-            onChange={this.handleChange}
-          />
-          <input
-            placeholder="name"
-            type="text"
-            name="name"
-            value={name}
-            onChange={this.handleChange}
-          />
-          <input
-            placeholder="password"
-            type="password"
-            name="password"
-            value={password}
-            onChange={this.handleChange}
-          />
-          <button placeholder="submit" type="submit">
-            Log In
-          </button>
-          <div>
-           or <Link to='/signup'>sign up</Link>
-          </div>
+      <Form inline onSubmit={this.handleSubmit}>
+        <FormControl 
+          type="text" 
+          placeholder="username" 
+          className="mr-sm-2" 
+          name="username"
+          value={username}
+          onChange={this.handleChange}
+        />
+        <FormControl 
+          type="password" 
+          placeholder="password" 
+          className="mr-sm-2" 
+          name="password"
+          value={password}
+          onChange={this.handleChange}
+        />
+        <Button variant="outline-success" type="submit">Login</Button>
+      </Form>
+      // <div>
+      // {/* //   <h1>Log In</h1> */}
+      //   <form onSubmit={this.handleSubmit}>
+      //     <input
+      //       placeholder="username"
+      //       type="text"
+      //       name="username"
+      //       value={username}
+      //       onChange={this.handleChange}
+      //     />
+      //     {/* <input
+      //       placeholder="name"
+      //       type="text"
+      //       name="name"
+      //       value={name}
+      //       onChange={this.handleChange}
+      //     /> */}
+      //     <input
+      //       placeholder="password"
+      //       type="password"
+      //       name="password"
+      //       value={password}
+      //       onChange={this.handleChange}
+      //     />
+      //     <button placeholder="submit" type="submit">
+      //       Log In
+      //     </button>
           
-        </form>
-        <div>
-          {
-            this.state.errors ? this.handleErrors() : null
-          }
-        </div>
-      </div>
+      //   </form>
+        // {/* <div>
+        //   {
+        //     this.state.errors ? this.handleErrors() : null
+        //   }
+        // </div> */}
+      // </div>
     );
   }
 }

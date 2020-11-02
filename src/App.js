@@ -68,7 +68,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Router>
-            <NavBar loggedInStatus={this.state.isLoggedIn} handleLogout={this.handleLogout}/>
+            <NavBar loggedInStatus={this.state.isLoggedIn} handleLogout={this.handleLogout} handleLogin={this.handleLogin}/>
             <Switch>
             <Route exact path="/" component={PostsContainer} />
             <Route exact path="/posts/new" component={PostsInput} />
