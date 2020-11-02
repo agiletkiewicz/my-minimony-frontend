@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import FormControl from 'react-bootstrap/FormControl'
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import Container from 'react-bootstrap/Container';
+
+
 class Signup extends Component {
   constructor(props) {
     super(props);
@@ -55,49 +63,54 @@ handleErrors = () => {
 render() {
     const {username, name, password, password_confirmation} = this.state
 return (
-      <div>
-        <h1>Sign Up</h1>
-       <form onSubmit={this.handleSubmit}>
-          <input
-            placeholder="username"
-            type="text"
-            name="username"
-            value={username}
-            onChange={this.handleChange}
-          />
-          <input
-            placeholder="name"
-            type="text"
-            name="name"
-            value={name}
-            onChange={this.handleChange}
-          />
-          <input 
-            placeholder="password"
-            type="password"
-            name="password"
-            value={password}
-            onChange={this.handleChange}
-          />
-          <input
-            placeholder="password confirmation"
-            type="password"
-            name="password_confirmation"
-            value={password_confirmation}
-            onChange={this.handleChange}
-          />
-        
-          <button placeholder="submit" type="submit">
-            Sign Up
-          </button>
-      
-        </form>
-        <div>
-          {
-            this.state.errors ? this.handleErrors() : null
-          }
-        </div>
-      </div>
+
+  <Container>
+    <Row className="justify-content-md-center">
+      <Col xs lg="5">
+        <h2>Sign Up</h2>
+        <Form onSubmit={this.handleSubmit}>
+            <FormControl
+              placeholder="username"
+              type="text"
+              name="username"
+              value={username}
+              onChange={this.handleChange}
+            />
+            <br />
+            <FormControl
+              placeholder="name"
+              type="text"
+              name="name"
+              value={name}
+              onChange={this.handleChange}
+            />
+            <br />
+            <FormControl
+              placeholder="password"
+              type="password"
+              name="password"
+              value={password}
+              onChange={this.handleChange}
+            />
+            <br />
+            <FormControl
+              placeholder="password confirmation"
+              type="password"
+              name="password_confirmation"
+              value={password_confirmation}
+              onChange={this.handleChange}
+            />
+            <br />
+            <Button variant="primary" type="submit">
+              Signup
+            </Button>
+        </Form>
+      </Col>
+    </Row>
+  </Container>
+          // {
+          //   this.state.errors ? this.handleErrors() : null
+          // }
     );
   }
 }
