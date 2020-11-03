@@ -10,34 +10,32 @@ import Nav from 'react-bootstrap/Nav'
 import { useHistory } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import Login from './Login';
+import { connect } from 'react-redux';
+import { logoutUser } from '../actions/logoutUser';
 
-const NavBar = (props) => {
+class NavBar extends React.Component {
 
-  let history = useHistory();
+  // const history = useHistory();
 
-  const handleClick = () => {
-    axios.delete('http://localhost:3000/api/v1/logout', {withCredentials: true})
-    .then(response => {
-      props.handleLogout();
-      history.push('/')
-    })
-    .catch(error => console.log(error))
-  }
+  // handleClick = () => {
+  //   this.props.logoutUser();
+  // }
 
-  return (
+  render() {
+    return (
     <Navbar bg="light" expand="lg">
         <Nav className="mr-auto">
             <LinkContainer to="/">
                 <Nav.Link>Home</Nav.Link>
             </LinkContainer>
             { 
-              props.loggedInStatus ? 
+              this.props.user.isLoggedIn ? 
               <LinkContainer to="/posts/new"><Nav.Link>Add a post</Nav.Link></LinkContainer> : 
               null
             }
             { 
-              props.loggedInStatus ? 
-              <LinkContainer to='/logout' onClick={handleClick}><Nav.Link>Log Out</Nav.Link></LinkContainer> : 
+              this.props.user.isLoggedIn ? 
+              <LinkContainer to='/logout' onClick={this.props.logoutUser}><Nav.Link>Log Out</Nav.Link></LinkContainer> : 
               <LinkContainer to="/signup"><Nav.Link>Signup</Nav.Link></LinkContainer>
             }
         </Nav>
@@ -46,4 +44,12 @@ const NavBar = (props) => {
   );
 }
 
-export default NavBar;
+}
+
+const mapStateToProps = state => {
+  return {
+      user: state.user
+  }
+}
+
+export default connect(mapStateToProps, { logoutUser })(NavBar);

@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import { connect } from 'react-redux';
 import { fetchPosts } from './actions/fetchPosts';
+import { logoutUser } from './actions/logoutUser';
 import PostsContainer from './containers/PostsContainer';
 import PostsInput from './components/PostsInput';
 import PostShow from './components/PostShow';
@@ -18,40 +19,6 @@ import axios from 'axios';
 
 class App extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = { 
-      isLoggedIn: false,
-      user: {}
-     };
-  }
-
-  handleLogin = (data) => {
-    this.setState({
-      isLoggedIn: true,
-      user: data.user
-    })
-  }
-
-  handleLogout = () => {
-    this.setState({
-    isLoggedIn: false,
-    user: {}
-    });
-  }
-
-  loginStatus = () => {
-    axios.get('http://localhost:3000/api/v1/logged_in', 
-   {withCredentials: true})
-    .then(response => {
-      if (response.data.logged_in) {
-        this.handleLogin(response.data)
-      } else {
-        this.handleLogout()
-      }
-    })
-    .catch(error => console.log('api errors:', error))
-  }
 
   componentDidMount() {
     this.props.fetchPosts();
@@ -69,7 +36,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Router>
-            <NavBar loggedInStatus={this.state.isLoggedIn} handleLogout={this.handleLogout} handleLogin={this.handleLogin}/>
+            <NavBar />
             <Switch>
             <Route exact path="/" component={PostsContainer} />
             <Route exact path="/posts/new" component={PostsInput} />
@@ -100,4 +67,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {fetchPosts, fetchLoginStatus })(App);
+export default connect(mapStateToProps, { fetchPosts, fetchLoginStatus, logoutUser })(App);
