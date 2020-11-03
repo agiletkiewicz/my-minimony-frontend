@@ -16,8 +16,7 @@ class Signup extends Component {
       username: '',
       name: '',
       password: '',
-      password_confirmation: '',
-      errors: ''
+      passwordConfirmation: '',
      };
   }
   
@@ -30,12 +29,12 @@ class Signup extends Component {
     
   handleSubmit = (event) => {
       event.preventDefault()
-      const {username, name, password, password_confirmation} = this.state
+      const {username, name, password, passwordConfirmation} = this.state
       let user = {
         username: username,
         name: name,
         password: password,
-        password_confirmation: password_confirmation
+        passwordConfirmation: passwordConfirmation
       }
       
       this.props.addUser(user);
@@ -44,8 +43,7 @@ class Signup extends Component {
         username: '',
         name: '',
         password: '',
-        password_confirmation: '',
-        errors: ''
+        passwordConfirmation: '',
       })
 
       this.props.history.push('/')
@@ -65,7 +63,7 @@ class Signup extends Component {
       
   render() {
 
-    const {username, name, password, password_confirmation} = this.state
+    const {username, name, password, passwordConfirmation} = this.state
 
     return (
       <Container>
@@ -100,8 +98,8 @@ class Signup extends Component {
                 <FormControl
                   placeholder="password confirmation"
                   type="password"
-                  name="password_confirmation"
-                  value={password_confirmation}
+                  name="passwordConfirmation"
+                  value={passwordConfirmation}
                   onChange={this.handleChange}
                 />
                 <br />
