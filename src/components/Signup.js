@@ -8,7 +8,6 @@ import Container from 'react-bootstrap/Container';
 import { addUser } from '../actions/addUser';
 import { connect } from 'react-redux';
 
-
 class Signup extends Component {
 
   constructor(props) {
@@ -21,6 +20,7 @@ class Signup extends Component {
       errors: ''
      };
   }
+  
   handleChange = (event) => {
       const {name, value} = event.target
       this.setState({
@@ -37,6 +37,7 @@ class Signup extends Component {
         password: password,
         password_confirmation: password_confirmation
       }
+      
       this.props.addUser(user);
 
       this.setState({
@@ -46,6 +47,9 @@ class Signup extends Component {
         password_confirmation: '',
         errors: ''
       })
+
+      this.props.history.push('/')
+
     };
 
   handleErrors = () => {
