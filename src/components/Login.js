@@ -8,42 +8,53 @@ import { connect } from 'react-redux';
 import { loginUser } from '../actions/loginUser';
 
 class Login extends Component {
+
   constructor(props) {
     super(props);
     this.state = { 
       username: '',
       password: '',
-      errors: ''
+      // errors: ''
      };
   }
+
 handleChange = (event) => {
     const {name, value} = event.target
     this.setState({
       [name]: value
     })
   };
+
 handleSubmit = (event) => {
-    event.preventDefault()
-    debugger
-    const {username, password} = this.state
-let user = {
-      username: username,
-      password: password
-    }
-    
-axios.post('http://localhost:3000/api/v1/login', {user}, {withCredentials: true})
-    .then(response => {
-      if (response.data.logged_in) {
-        this.props.handleLogin(response.data)
-        this.redirect()
-      } else {
-        this.setState({
-          errors: response.data.errors
-        })
-      }
+    event.preventDefault();
+    this.props.loginUser(this.state);
+    this.setState({
+      username: '',
+      password: '',
+      errors: ''
     })
-    .catch(error => console.log('api errors:', error))
+//     debugger
+//     const {username, password} = this.state
+//   let user = {
+//       username: username,
+//       password: password
+//     }
+    
+// axios.post('http://localhost:3000/api/v1/login', {user}, {withCredentials: true})
+//     .then(response => {
+//       if (response.data.logged_in) {
+//         this.props.handleLogin(response.data)
+//         this.redirect()
+//       } else {
+//         this.setState({
+//           errors: response.data.errors
+//         })
+//       }
+//     })
+//     .catch(error => console.log('api errors:', error))
   };
+
+
 redirect = () => {
     this.props.history.push('/')
   }

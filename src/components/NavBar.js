@@ -41,7 +41,7 @@ const NavBar = (props) => {
               <LinkContainer to="/signup"><Nav.Link>Signup</Nav.Link></LinkContainer>
             }
         </Nav>
-        <Login handleLogin={props.handleLogin}/>
+        <Login />
     </Navbar>
   );
 }

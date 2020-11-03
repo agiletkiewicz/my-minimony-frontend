@@ -8,6 +8,7 @@ import PostShow from './components/PostShow';
 import NavBar from './components/NavBar';
 import Login from './components/Login';
 import Signup from './components/Signup';
+import { fetchLoginStatus  } from './actions/fetchLoginStatus';
 import {
   BrowserRouter as Router,
   Route,
@@ -54,7 +55,7 @@ class App extends React.Component {
 
   componentDidMount() {
     this.props.fetchPosts();
-    this.loginStatus(); 
+    this.props.fetchLoginStatus(); 
 }
 
   renderPost = (routerProps) => {
@@ -99,4 +100,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {fetchPosts})(App);
+export default connect(mapStateToProps, {fetchPosts, fetchLoginStatus })(App);

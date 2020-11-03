@@ -6,14 +6,19 @@ export default (state = {
   
     switch (action.type) {
       case 'LOGIN_USER':
-        debugger
         return {
             isLoggedIn: true,
             id: action.user.id,
             name: action.user.name
         } 
-      default: 
-        return state;
+        case 'LOGOUT_USER':
+            return {
+                isLoggedIn: false,
+                id: null,
+                name: ""
+            }
+        default: 
+            return state;
     }
   
   }
