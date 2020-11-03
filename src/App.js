@@ -49,7 +49,7 @@ class App extends React.Component {
             <Route 
               exact path='/signup' 
               render={props => (
-              <Signup {...props} handleLogin={this.handleLogin} loggedInStatus={this.state.isLoggedIn}/>
+              <Signup {...props} />
               )}
             />
             </Switch>

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import FormControl from 'react-bootstrap/FormControl'
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
+import { addUser } from '../actions/addUser';
+import { connect } from 'react-redux';
 
 
 class Signup extends Component {
@@ -36,24 +37,16 @@ class Signup extends Component {
         password: password,
         password_confirmation: password_confirmation
       }
+      this.props.addUser(user);
 
-  axios.post('http://localhost:3000/api/v1/users', {user}, {withCredentials: true})
-      .then(response => {
-        if (response.data.status === 'created') {
-          this.props.handleLogin(response.data)
-          this.redirect()
-        } else {
-          this.setState({
-            errors: response.data.errors
-          })
-        }
+      this.setState({
+        username: '',
+        name: '',
+        password: '',
+        password_confirmation: '',
+        errors: ''
       })
-      .catch(error => console.log('api errors:', error))
     };
-
-  redirect = () => {
-      this.props.history.push('/')
-    }
 
   handleErrors = () => {
       return (
@@ -68,7 +61,7 @@ class Signup extends Component {
       
   render() {
 
-      const {username, name, password, password_confirmation} = this.state
+    const {username, name, password, password_confirmation} = this.state
 
     return (
       <Container>
@@ -121,4 +114,4 @@ class Signup extends Component {
         );
   }
 }
-export default Signup;
+export default connect(null, { addUser })(Signup);

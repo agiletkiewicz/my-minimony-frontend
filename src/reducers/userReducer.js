@@ -17,8 +17,6 @@ export default (state = {
                 id: null,
                 name: ""
             }
-        case 'ADD_USER':
-            return state;
         default: 
             return state;
     }
