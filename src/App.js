@@ -15,7 +15,6 @@ import {
   Route,
   Switch
 } from 'react-router-dom';
-import axios from 'axios';
 
 class App extends React.Component {
 
@@ -55,7 +54,6 @@ class App extends React.Component {
             />
             </Switch>
         </Router>
-        {console.log(this.state)}
       </div>
     );
   }
