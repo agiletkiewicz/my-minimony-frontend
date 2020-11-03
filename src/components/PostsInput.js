@@ -15,7 +15,7 @@ class PostsInput extends React.Component {
         this.state = {
             title: "",
             description: "",
-            image_url: "",
+            imageUrl: "",
             url: ""
         }
     }
@@ -26,7 +26,7 @@ class PostsInput extends React.Component {
         this.setState({
             title: "",
             description: "",
-            image_url: "",
+            imageUrl: "",
             url: ""
         });
     }
@@ -49,7 +49,7 @@ class PostsInput extends React.Component {
                         <Form.Label>Description</Form.Label>
                         <Form.Control as="textarea" name="description" onChange={this.handleChange} value={this.state.description}/>
                         <Form.Label>Image URL</Form.Label>
-                        <Form.Control type="text" name="image_url" onChange={this.handleChange} value={this.state.image_url}/>
+                        <Form.Control type="text" name="imageUrl" onChange={this.handleChange} value={this.state.imageUrl}/>
                         <Form.Label>URL</Form.Label>
                         <Form.Control type="text" name="url" onChange={this.handleChange} value={this.state.url}/>
                         <br />

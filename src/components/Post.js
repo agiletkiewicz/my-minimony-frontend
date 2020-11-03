@@ -8,7 +8,7 @@ function Post(props) {
         <div>
        <Link to={`/posts/${props.post.id}`} className="home-page">
         <Card>
-            <Card.Img src={props.post.image_url} />
+            <Card.Img src={props.post.imageUrl} />
             <Card.ImgOverlay>
                 <Button variant="primary" type="submit" size="sm" disabled>
                     Save

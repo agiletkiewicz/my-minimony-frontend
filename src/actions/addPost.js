@@ -11,7 +11,7 @@ export const addPost = (data) => {
         })
         .then(resp => resp.json())
         .then(data => {
-            if(!data.post.errors) {
+            if(!data.errors) {
                 dispatch({type: 'ADD_POST', post: data})
             } else {
                 dispatch({type: 'ADD_POST_FAILED', post: data.post.errors})
