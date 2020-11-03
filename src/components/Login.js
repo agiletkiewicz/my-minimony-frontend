@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import FormControl from 'react-bootstrap/FormControl'
 import { connect } from 'react-redux';
 import { loginUser } from '../actions/loginUser';
+import Alert from 'react-bootstrap/Alert';
 
 class Login extends Component {
 
@@ -12,7 +13,6 @@ class Login extends Component {
     this.state = { 
       username: '',
       password: '',
-      // errors: ''
      };
   }
 
@@ -25,31 +25,18 @@ handleChange = (event) => {
 
 handleSubmit = (event) => {
     event.preventDefault();
-    this.props.loginUser(this.state);
+    this.props.loginUser(this.state); 
     this.setState({
       username: '',
       password: '',
-      errors: ''
     })
   };
-
-
-handleErrors = () => {
-    return (
-      <div>
-        <ul>
-        {this.state.errors.map(error => {
-        return <li key={error}>{error}</li>
-          })}
-        </ul>
-      </div>
-    )
-  }
 
 render() {
   const {username, password} = this.state
 
   return (
+    <>
         <Form inline onSubmit={this.handleSubmit}>
           <FormControl 
             type="text" 
@@ -69,7 +56,15 @@ render() {
           />
           <Button variant="outline-success" type="submit">Login</Button>
         </Form>
+        </>
       );
     }
 }
-export default connect(null, { loginUser })(Login);
+
+const mapStateToProps = state => {
+  return {
+      error: state.user.error
+  }
+}
+
+export default connect(mapStateToProps, { loginUser })(Login);

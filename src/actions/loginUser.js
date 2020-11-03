@@ -7,7 +7,9 @@ export const loginUser = (data) => {
         .then(response => {
         if (response.data.logged_in) {
             dispatch({type: 'LOGIN_USER', user: response.data.user})
-        } 
+        } else {
+            dispatch({type: 'LOGIN_USER_FAILED', error: "Can't verify account"});
+        }
         })
     };
 }
