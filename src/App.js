@@ -9,6 +9,7 @@ import PostShow from './components/PostShow';
 import NavBar from './components/NavBar';
 import Login from './components/Login';
 import Signup from './components/Signup';
+import Alert from 'react-bootstrap/Alert';
 import { fetchLoginStatus  } from './actions/fetchLoginStatus';
 import {
   BrowserRouter as Router,
@@ -36,6 +37,7 @@ class App extends React.Component {
       <div className="App">
         <Router>
             <NavBar />
+            {this.props.error ? <Alert inline variant={'danger'}>{this.props.error}</Alert> : null }
             <Switch>
             <Route exact path="/" component={PostsContainer} />
             <Route exact path="/posts/new" component={PostsInput} />
@@ -61,7 +63,8 @@ class App extends React.Component {
 
 const mapStateToProps = state => {
   return {
-      posts: state.posts
+      posts: state.posts,
+      error: state.user.error
   }
 }
 
