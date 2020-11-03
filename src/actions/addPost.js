@@ -10,6 +10,12 @@ export const addPost = (data) => {
             body: JSON.stringify({post: data})
         })
         .then(resp => resp.json())
-        .then(data => dispatch({type: 'ADD_POST', post: data}))
+        .then(data => {
+            if(!data.post.errors) {
+                dispatch({type: 'ADD_POST', post: data})
+            } else {
+                dispatch({type: 'ADD_POST_FAILED', post: data.post.errors})
+            }
+        })
     }
 }
