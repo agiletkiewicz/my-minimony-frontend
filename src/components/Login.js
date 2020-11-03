@@ -4,6 +4,8 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import FormControl from 'react-bootstrap/FormControl'
 import {Link} from 'react-router-dom'
+import { connect } from 'react-redux';
+import { loginUser } from '../actions/loginUser';
 
 class Login extends Component {
   constructor(props) {
@@ -116,4 +118,4 @@ return (
     );
   }
 }
-export default Login;
+export default connect(null, { loginUser })(Login);
