@@ -22,7 +22,7 @@ class PostsInput extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        this.props.addPost(this.state);
+        this.props.addPost(this.state, this.props.userId);
         this.setState({
             title: "",
             description: "",
@@ -63,6 +63,12 @@ class PostsInput extends React.Component {
         )
     }
 
-} 
+}
 
-export default connect(null, { addPost })(PostsInput);
+const mapStateToProps = state => {
+    return {
+        userId: state.user.id
+    }
+}
+
+export default connect(mapStateToProps, { addPost })(PostsInput);
