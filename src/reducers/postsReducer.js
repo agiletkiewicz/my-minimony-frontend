@@ -5,7 +5,7 @@ export default (state = [], action) => {
       return action.posts.data;
     case 'ADD_POST':
       debugger
-      return [...state, action.post.data];
+      return [...state, action.post];
     default: 
       return state;
   }
