@@ -1,18 +1,17 @@
 import React from 'react';
-// import Post from './Post'
-import CardColumns from 'react-bootstrap/CardColumns'
+import Board from './Board'
 
 
-function Baords(props) {
+function Boards(props) {
 
     return (
-        <CardColumns>
-            {props.posts.map( post => (
-                <Post key={post.id} post={post.attributes} />
+        <>
+            {props.boards.map( board => (
+                <Board key={board.id} board={board.attributes} />
             ))}
-        </CardColumns>
+        </>
     )
 
 } 
 
-export default Posts;
+export default Boards;

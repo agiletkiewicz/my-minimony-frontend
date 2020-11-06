@@ -1,4 +1,5 @@
 import React from 'react';
+import Boards from '../components/Boards'
 
 import { connect } from 'react-redux';
 
@@ -6,7 +7,7 @@ class BoardsContainer extends React.Component {
 
 
     render() {
-        return <div>these are my boards</div>
+        return <div><Boards boards={this.props.boards}/></div>
     }
 } 
 
