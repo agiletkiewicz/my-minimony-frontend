@@ -3,7 +3,7 @@ import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav'
 import { LinkContainer } from "react-router-bootstrap";
-import Login from './Login';
+import Login from './users/Login';
 import { connect } from 'react-redux';
 import { logoutUser } from '../actions/logoutUser';
 
@@ -27,7 +27,11 @@ class NavBar extends React.Component {
               <LinkContainer to="/signup"><Nav.Link>Signup</Nav.Link></LinkContainer>
             }
         </Nav>
-        <Login />
+          {
+            this.props.user.isLoggedIn ? 
+            <LinkContainer to="/boards"><Nav.Link>See your boards</Nav.Link></LinkContainer> :
+            <Login />
+          }
     </Navbar>
   );
 }

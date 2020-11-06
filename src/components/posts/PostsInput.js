@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import { connect } from 'react-redux';
-import { addPost } from '../actions/addPost';
+import { addPost } from '../../actions/addPost';
 
 
 class PostsInput extends React.Component {
@@ -63,6 +63,12 @@ class PostsInput extends React.Component {
         )
     }
 
-} 
+}
 
-export default connect(null, { addPost })(PostsInput);
+const mapStateToProps = state => {
+    return {
+        userId: state.user.id
+    }
+}
+
+export default connect(mapStateToProps, { addPost })(PostsInput);

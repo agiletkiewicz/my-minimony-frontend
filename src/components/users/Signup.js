@@ -5,7 +5,7 @@ import FormControl from 'react-bootstrap/FormControl'
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
-import { addUser } from '../actions/addUser';
+import { addUser } from '/Users/Agi/Flatiron/code/react-project-build/my-minimony-frontend/src/actions/addUser.js';
 import { connect } from 'react-redux';
 
 class Signup extends Component {

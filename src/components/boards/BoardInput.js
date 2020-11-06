@@ -3,16 +3,16 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import FormControl from 'react-bootstrap/FormControl'
 import { connect } from 'react-redux';
-import { loginUser } from '../actions/loginUser';
+import { addBoard } from '../../actions/addBoard';
+import Col from 'react-bootstrap/Col';
 import Alert from 'react-bootstrap/Alert';
 
-class Login extends Component {
+class BoardInput extends Component {
 
   constructor(props) {
     super(props);
     this.state = { 
-      username: '',
-      password: '',
+      title: '',
      };
   }
 
@@ -25,46 +25,32 @@ handleChange = (event) => {
 
 handleSubmit = (event) => {
     event.preventDefault();
-    this.props.loginUser(this.state); 
+    this.props.addBoard(this.state); 
     this.setState({
-      username: '',
-      password: '',
+      title: '',
     })
   };
 
 render() {
-  const {username, password} = this.state
+  const { title } = this.state
 
   return (
     <>
         <Form inline onSubmit={this.handleSubmit}>
           <FormControl 
             type="text" 
-            placeholder="username" 
+            placeholder="title" 
             className="mr-sm-2" 
-            name="username"
-            value={username}
+            name="title"
+            value={title}
             onChange={this.handleChange}
           />
-          <FormControl 
-            type="password" 
-            placeholder="password" 
-            className="mr-sm-2" 
-            name="password"
-            value={password}
-            onChange={this.handleChange}
-          />
-          <Button variant="outline-success" type="submit">Login</Button>
+          <Button variant="outline-success" type="submit">Add</Button>
         </Form>
-        </>
+    </>
       );
     }
 }
 
-const mapStateToProps = state => {
-  return {
-      error: state.user.error
-  }
-}
 
-export default connect(mapStateToProps, { loginUser })(Login);
+export default connect(null, { addBoard })(BoardInput);

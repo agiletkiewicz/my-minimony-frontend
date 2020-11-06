@@ -4,11 +4,13 @@ import { connect } from 'react-redux';
 import { fetchPosts } from './actions/fetchPosts';
 import { logoutUser } from './actions/logoutUser';
 import PostsContainer from './containers/PostsContainer';
-import PostsInput from './components/PostsInput';
-import PostShow from './components/PostShow';
+import BoardsContainer from './containers/BoardsContainer';
+import PostsInput from './components/posts/PostsInput';
+import PostShow from './components/posts/PostShow';
+import BoardShow from './components/boards/BoardShow';
 import NavBar from './components/NavBar';
-import Login from './components/Login';
-import Signup from './components/Signup';
+import Login from './components/users/Login';
+import Signup from './components/users/Signup';
 import Alert from 'react-bootstrap/Alert';
 import { fetchLoginStatus  } from './actions/fetchLoginStatus';
 import {
@@ -31,6 +33,12 @@ class App extends React.Component {
     return ( post ? <PostShow post={post}/> : null)
   }
 
+  renderBoard = (routerProps) => {
+    let boardId = parseInt(routerProps.match.params.id);
+    let board = this.props.boards.find( obj => parseInt(obj.id) === boardId );
+    return ( board ? <BoardShow board={board}/> : null)
+  }
+
 
   render() {
     return (
@@ -42,6 +50,8 @@ class App extends React.Component {
             <Route exact path="/" component={PostsContainer} />
             <Route exact path="/posts/new" component={PostsInput} />
             <Route path="/posts/:id" render = {this.renderPost} />
+            <Route exact path="/boards" component={BoardsContainer} />
+            <Route path="/boards/:id" render = {this.renderBoard} />
             <Route 
               exact path='/login' 
               render={props => (
@@ -64,7 +74,8 @@ class App extends React.Component {
 const mapStateToProps = state => {
   return {
       posts: state.posts,
-      error: state.user.error
+      error: state.user.error,
+      boards: state.boards
   }
 }
 
