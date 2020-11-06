@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import { connect } from 'react-redux';
-import { addPost } from '../actions/addPost';
+import { addPost } from '../../actions/addPost';
 
 
 class PostsInput extends React.Component {

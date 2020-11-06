@@ -5,11 +5,11 @@ import { fetchPosts } from './actions/fetchPosts';
 import { logoutUser } from './actions/logoutUser';
 import PostsContainer from './containers/PostsContainer';
 import BoardsContainer from './containers/BoardsContainer';
-import PostsInput from './components/PostsInput';
-import PostShow from './components/PostShow';
+import PostsInput from './components/posts/PostsInput';
+import PostShow from './components/posts/PostShow';
 import NavBar from './components/NavBar';
-import Login from './components/Login';
-import Signup from './components/Signup';
+import Login from './components/users/Login';
+import Signup from './components/users/Signup';
 import Alert from 'react-bootstrap/Alert';
 import { fetchLoginStatus  } from './actions/fetchLoginStatus';
 import {

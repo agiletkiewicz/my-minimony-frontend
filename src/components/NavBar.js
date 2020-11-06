@@ -3,7 +3,7 @@ import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav'
 import { LinkContainer } from "react-router-bootstrap";
-import Login from './Login';
+import Login from './users/Login';
 import { connect } from 'react-redux';
 import { logoutUser } from '../actions/logoutUser';
 

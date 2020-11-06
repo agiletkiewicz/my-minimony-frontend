@@ -1,5 +1,5 @@
 import React from 'react';
-import Boards from '../components/Boards'
+import Boards from '../components/boards/Boards'
 
 import { connect } from 'react-redux';
 
