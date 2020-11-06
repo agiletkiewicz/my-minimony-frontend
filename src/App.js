@@ -7,6 +7,7 @@ import PostsContainer from './containers/PostsContainer';
 import BoardsContainer from './containers/BoardsContainer';
 import PostsInput from './components/posts/PostsInput';
 import PostShow from './components/posts/PostShow';
+import BoardShow from './components/boards/BoardShow';
 import NavBar from './components/NavBar';
 import Login from './components/users/Login';
 import Signup from './components/users/Signup';
@@ -32,6 +33,12 @@ class App extends React.Component {
     return ( post ? <PostShow post={post}/> : null)
   }
 
+  renderBoard = (routerProps) => {
+    let boardId = parseInt(routerProps.match.params.id);
+    let board = this.props.boards.find( obj => parseInt(obj.id) === boardId );
+    return ( board ? <BoardShow board={board}/> : null)
+  }
+
 
   render() {
     return (
@@ -44,6 +51,7 @@ class App extends React.Component {
             <Route exact path="/posts/new" component={PostsInput} />
             <Route path="/posts/:id" render = {this.renderPost} />
             <Route exact path="/boards" component={BoardsContainer} />
+            <Route path="/boards/:id" render = {this.renderBoard} />
             <Route 
               exact path='/login' 
               render={props => (
@@ -66,7 +74,8 @@ class App extends React.Component {
 const mapStateToProps = state => {
   return {
       posts: state.posts,
-      error: state.user.error
+      error: state.user.error,
+      boards: state.boards
   }
 }
 
