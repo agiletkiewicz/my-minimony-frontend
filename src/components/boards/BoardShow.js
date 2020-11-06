@@ -6,6 +6,10 @@ import { connect } from 'react-redux';
 import { addBoard } from '../../actions/addBoard';
 import Col from 'react-bootstrap/Col';
 import Alert from 'react-bootstrap/Alert';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import { Link } from 'react-router-dom';
+import Posts from '../posts/Posts';
 
 class BoardShow extends Component {
 
@@ -28,10 +32,20 @@ class BoardShow extends Component {
     render() {
 
     return (
-        <>
-        {console.log(this.state.posts)}
-        hello
-        </>
+        <Container>
+            <Row>
+                <Col xs={1}>
+                    <Link to={"/boards"}>
+                    <h2>{"<"}</h2>
+                    </Link>
+                    <br/>
+                    back
+                </Col>
+                <Col>
+                    <Posts posts={this.state.posts}/>
+                </Col>
+            </Row>
+        </Container>
     )
     }
 }
