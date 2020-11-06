@@ -5,8 +5,10 @@ import { Link } from 'react-router-dom';
 
 function Board(props) {
     return (
-        <div>
-            this is a board
+        <Card>
+            <Card.Header>
+                {props.board.title}
+            </Card.Header>
        {/* <Link to={`/posts/${props.post.id}`} className="home-page">
         <Card>
             <Card.Img src={props.post.imageUrl} />
@@ -21,7 +23,7 @@ function Board(props) {
             </Card.Body>
         </Card>
         </Link> */}
-        </div>
+        </Card>
     )
 
 } 

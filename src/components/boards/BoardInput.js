@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import FormControl from 'react-bootstrap/FormControl'
 import { connect } from 'react-redux';
 import { addBoard } from '../../actions/addBoard';
+import Col from 'react-bootstrap/Col';
 import Alert from 'react-bootstrap/Alert';
 
 class BoardInput extends Component {
@@ -46,7 +47,7 @@ render() {
           />
           <Button variant="outline-success" type="submit">Add</Button>
         </Form>
-        </>
+    </>
       );
     }
 }
