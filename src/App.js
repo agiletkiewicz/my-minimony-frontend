@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { fetchPosts } from './actions/fetchPosts';
 import { logoutUser } from './actions/logoutUser';
 import PostsContainer from './containers/PostsContainer';
+import BoardsContainer from './containers/BoardsContainer';
 import PostsInput from './components/PostsInput';
 import PostShow from './components/PostShow';
 import NavBar from './components/NavBar';
@@ -42,6 +43,7 @@ class App extends React.Component {
             <Route exact path="/" component={PostsContainer} />
             <Route exact path="/posts/new" component={PostsInput} />
             <Route path="/posts/:id" render = {this.renderPost} />
+            <Route exact path="/boards" component={BoardsContainer} />
             <Route 
               exact path='/login' 
               render={props => (
