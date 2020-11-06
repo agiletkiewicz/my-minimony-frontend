@@ -8,7 +8,7 @@ function Posts(props) {
     return (
         <CardColumns>
             {props.posts.map( post => (
-                <Post key={post.id} post={post.attributes} />
+                <Post key={post.id} post={post.attributes} setModalShow={props.setModalShow}/>
             ))}
         </CardColumns>
     )
