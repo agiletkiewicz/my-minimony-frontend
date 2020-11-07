@@ -4,9 +4,12 @@ import { connect } from 'react-redux';
 
 class PostsContainer extends React.Component {
 
-
     render() {
-        return <div><Posts posts={this.props.posts}/></div>
+        return (
+        <div>
+            <Posts posts={this.props.posts} />
+        </div>
+        )
     }
 } 
 

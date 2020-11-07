@@ -29,8 +29,8 @@ class App extends React.Component {
 
   renderPost = (routerProps) => {
     let postId = parseInt(routerProps.match.params.id);
-    let post = this.props.posts.find( obj => obj.id === postId );
-    return ( post ? <PostShow post={post}/> : null)
+    let post = this.props.posts.find( obj => parseInt(obj.id) === postId );
+    return ( post ? <PostShow post={post.attributes}/> : null)
   }
 
   renderBoard = (routerProps) => {
