@@ -17,7 +17,6 @@ export default (state = [], action) => {
         }  
         return [...state, board];
       case 'ADD_SAVE':
-        debugger
         return state.map( board => (
           board.id === action.payload.boardId ? {...board, posts: [...board.posts, action.payload.postId]} : board
         ))

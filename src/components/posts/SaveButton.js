@@ -24,19 +24,6 @@ class SaveButton extends React.Component {
     handleSubmit = (event) => {
         event.preventDefault();
         this.props.addSave(this.state.boardId, this.props.postId);
-        // fetch('http://localhost:3000/api/v1/boardspost', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify({
-        //         boardId: this.state.boardId, 
-        //         postId: this.props.postId
-        //     }),
-        // })
-        // .then(resp => resp.json())
-        // .then(parsedResp => {console.log(parsedResp)})
-    
     }
     
     render() {

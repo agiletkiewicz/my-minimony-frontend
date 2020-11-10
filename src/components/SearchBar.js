@@ -26,9 +26,16 @@ class SearchBar extends React.Component {
       })
   }
 
+  clearSearch = (event) => {
+    event.preventDefault();
+    this.props.dispatch({ type: 'CLEAR_SEARCH' });
+}
+
   render() {
       return (
-        <Form inline onSubmit={this.handleSubmit}>
+        <>
+        <br />
+        <Form inline onSubmit={this.handleSubmit} className="justify-content-md-center">
             <Form.Control 
             type="text" 
             className="mr-sm-2" 
@@ -38,9 +45,12 @@ class SearchBar extends React.Component {
             />
             <Button variant="outline-success" type="submit">Search</Button>
         </Form>
+        {this.props.search.length > 0 ? <><br /><Button variant="light" type="submit" onClick={this.clearSearch}>Clear Search</Button><br /></> : null}
+        <br />
+        </>
       )
   }
 }
 
 
-export default connect()(SearchBar);
+export default connect(state => ({ search: state.search }))(SearchBar);
