@@ -8,7 +8,6 @@ function Board(props) {
         <Card>
             <Card.Header>
             <Link to={`/boards/${props.board.id}`}>{props.board.title}</Link>
-            {console.log(props)}
             </Card.Header>
        {/* <Link to={`/posts/${props.post.id}`} className="home-page">
         <Card>

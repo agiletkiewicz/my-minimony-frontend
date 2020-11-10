@@ -36,17 +36,19 @@ render() {
 
   return (
     <>
-        <Form inline onSubmit={this.handleSubmit}>
-          <FormControl 
-            type="text" 
-            placeholder="title" 
-            className="mr-sm-2" 
-            name="title"
-            value={title}
-            onChange={this.handleChange}
-          />
-          <Button variant="outline-success" type="submit">Add</Button>
-        </Form>
+      <h2>Add a new board</h2>
+      <Form inline onSubmit={this.handleSubmit} className="justify-content-md-center">
+        <FormControl 
+          type="text" 
+          placeholder="title" 
+          className="mr-sm-2" 
+          name="title"
+          value={title}
+          onChange={this.handleChange}
+        />
+        <Button variant="outline-success" type="submit">Add</Button>
+      </Form>
+      <br />
     </>
       );
     }
