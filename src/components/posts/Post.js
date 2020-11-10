@@ -10,9 +10,9 @@ function Post(props) {
         <Card>
             <Card.Img src={props.post.imageUrl} />
             <Card.ImgOverlay>
-                <Button variant="primary" type="submit" size="sm" disabled>
+                {/* <Button variant="primary" type="submit" size="sm" disabled>
                     Save
-                </Button>{' '}
+                </Button>{' '} */}
             </Card.ImgOverlay>
             <Card.Body>
                 <Card.Title>{props.post.title}</Card.Title>

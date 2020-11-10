@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from 'axios';
 
 export const fetchLoginStatus = () => {
 
@@ -7,7 +7,7 @@ export const fetchLoginStatus = () => {
         .then(response => {
             if (response.data.logged_in) {
                 dispatch({type: 'LOGIN_USER', user: response.data.user.data.attributes});
-                dispatch({type: 'FETCH_BOARDS', boards: response.data.user.included});
+                dispatch({type: 'FETCH_BOARDS', boards: response.data.boards.data});
             } 
         })
     };

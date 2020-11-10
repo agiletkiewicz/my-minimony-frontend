@@ -27,7 +27,7 @@ function Boards(props) {
                 <Col xs={10}>
                     <CardDeck>
                         {props.boards.map( board => (
-                            <Board key={board.id} board={board.attributes} />
+                            <Board key={board.id} board={board} />
                         ))}
                     </CardDeck>
                 </Col>
