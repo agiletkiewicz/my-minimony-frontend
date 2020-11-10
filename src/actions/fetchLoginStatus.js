@@ -8,8 +8,10 @@ export const fetchLoginStatus = () => {
             if (response.data.logged_in) {
                 dispatch({type: 'LOGIN_USER', user: response.data.user.data.attributes});
                 dispatch({type: 'FETCH_BOARDS', boards: response.data.boards.data});
+                dispatch({type: 'CLEAR_ERROR'});
             } 
         })
+        .catch(error => dispatch({type: 'ADD_ERROR', error: "Something went wrong. Try again."}))
     };
     
 }

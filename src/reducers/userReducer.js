@@ -1,8 +1,7 @@
 export default (state = {
     isLoggedIn: false,
     id: null,
-    name: "",
-    error: ""
+    name: ""
 }, action) => {
   
     switch (action.type) {
@@ -10,15 +9,13 @@ export default (state = {
         return {
             isLoggedIn: true,
             id: action.user.id,
-            name: action.user.name,
-            error: ""
+            name: action.user.name
         } 
         case 'LOGOUT_USER':
             return {
                 isLoggedIn: false,
                 id: null,
-                name: "",
-                error: ""
+                name: ""
             }
         case 'LOGIN_USER_FAILED':
             return {...state, error: action.error}
