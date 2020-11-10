@@ -5,18 +5,20 @@ import SearchBar from '../components/SearchBar'
 
 class PostsContainer extends React.Component {
 
-    filteredPosts = () => {
-        debugger
-        this.props.posts.map( post => (
-            post.title.includes(this.props.search) || post.description.includes(this.props.search)
-        ))
-    }
 
     render() {
+
+        let posts = this.props.posts;
+        if (this.props.search.length > 0) {
+            posts = this.props.posts.filter( post => (
+                post.attributes.title.toLowerCase().includes(this.props.search) || post.attributes.description.toLowerCase().includes(this.props.search)
+            ));
+        }
+
         return (
         <div>
             <SearchBar />
-            <Posts posts={this.props.posts} />
+            <Posts posts={posts} />
         </div>
         )
     }

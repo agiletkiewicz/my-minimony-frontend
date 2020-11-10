@@ -14,7 +14,7 @@ class SearchBar extends React.Component {
 
   handleChange = (event) => {
     this.setState({
-        search: event.target.value
+        search: event.target.value.toLowerCase()
     })
   }
 
