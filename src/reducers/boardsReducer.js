@@ -10,8 +10,12 @@ export default (state = [], action) => {
           }  
         ))
       case 'ADD_BOARD':
-        debugger
         return [...state, action.board];
+      case 'ADD_SAVE':
+        debugger
+        return state.map( board => (
+          board.id === action.payload.boardId ? {...board, posts: [...board.posts, action.payload.postId]} : board
+        ))
       default: 
         return state;
     }

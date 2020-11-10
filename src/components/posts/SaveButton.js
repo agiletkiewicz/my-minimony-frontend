@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button'
 import { Link } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import { connect } from 'react-redux';
-
+import { addSave } from '../../actions/addSave';
 
 class SaveButton extends React.Component {
 
@@ -17,24 +17,25 @@ class SaveButton extends React.Component {
 
     handleClick = (value) => {
         this.setState({
-            boardId: value
+            boardId: parseInt(value)
         });
     }
 
     handleSubmit = (event) => {
         event.preventDefault();
-        fetch('http://localhost:3000/api/v1/boardspost', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                boardId: this.state.boardId, 
-                postId: this.props.postId
-            }),
-        })
-        .then(resp => resp.json())
-        .then(parsedResp => {console.log(parsedResp)})
+        this.props.addSave(this.state.boardId, this.props.postId);
+        // fetch('http://localhost:3000/api/v1/boardspost', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify({
+        //         boardId: this.state.boardId, 
+        //         postId: this.props.postId
+        //     }),
+        // })
+        // .then(resp => resp.json())
+        // .then(parsedResp => {console.log(parsedResp)})
     
     }
     
@@ -68,4 +69,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(SaveButton);
+export default connect(mapStateToProps, { addSave })(SaveButton);
