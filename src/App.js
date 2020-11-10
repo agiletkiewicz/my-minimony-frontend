@@ -45,7 +45,7 @@ class App extends React.Component {
       <div className="App">
         <Router>
             <NavBar />
-            {this.props.error ? <Alert inline variant={'danger'}>{this.props.error}</Alert> : null }
+            {this.props.errors.length > 0 ? <Alert inline variant={'danger'}>{this.props.errors.map(error => <p>{error}</p>)}</Alert> : null }
             <Switch>
             <Route exact path="/" component={PostsContainer} />
             <Route exact path="/posts/new" component={PostsInput} />
@@ -74,7 +74,7 @@ class App extends React.Component {
 const mapStateToProps = state => {
   return {
       posts: state.posts,
-      error: state.user.error,
+      errors: state.errors,
       boards: state.boards
   }
 }

@@ -2,7 +2,7 @@ export default (state = [], action) => {
   
     switch (action.type) {
       case 'ADD_ERROR':
-        return [action.error];
+        return action.error;
       case 'CLEAR_ERROR':
         return [];
       default: 
