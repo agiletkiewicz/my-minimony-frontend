@@ -11,6 +11,7 @@ export const fetchLoginStatus = () => {
                 dispatch({type: 'CLEAR_ERROR'});
             } 
         })
+        .catch(error => dispatch({type: 'ADD_ERROR', error: "Something went wrong. Try again."}))
     };
     
 }

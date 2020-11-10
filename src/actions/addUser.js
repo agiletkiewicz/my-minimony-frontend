@@ -8,6 +8,8 @@ export const addUser = (data) => {
           if (response.data.status === 'created') {
             dispatch({type: 'LOGIN_USER', user: response.data.user});
             dispatch({type: 'CLEAR_ERROR'});
+          } else {
+            dispatch({type: 'ADD_ERROR', error: response.data.error});
           }
         })
     };

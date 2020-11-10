@@ -8,5 +8,6 @@ export const logoutUser = (data) => {
             dispatch({type: 'LOGOUT_USER'});
             dispatch({type: 'CLEAR_ERROR'});
         })
+        .catch(error => dispatch({type: 'ADD_ERROR', error: "Something went wrong. Try again."}))
     };
 }

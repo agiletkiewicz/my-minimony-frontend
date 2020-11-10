@@ -8,6 +8,7 @@ export function fetchPosts() {
             dispatch({type: 'FETCH_POSTS', posts: parsedResp});
             dispatch({type: 'CLEAR_ERROR'});
         })
+        .catch(error => dispatch({type: 'ADD_ERROR', error: "Something went wrong. Try again."}))
     }
     
 }
