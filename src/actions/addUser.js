@@ -12,5 +12,6 @@ export const addUser = (data) => {
             dispatch({type: 'ADD_ERROR', error: response.data.error});
           }
         })
+        .catch(error => dispatch({type: 'ADD_ERROR', error: "Something went wrong. Try again."}))
     };
 }

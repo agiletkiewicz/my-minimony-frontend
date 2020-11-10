@@ -1,7 +1,7 @@
-  
 import React from 'react';
 import { connect } from 'react-redux';
 import Alert from 'react-bootstrap/Alert';
+import Button from 'react-bootstrap/Button';
 
 
 class Error extends React.Component {
@@ -20,6 +20,12 @@ class Error extends React.Component {
                 {this.props.errors.map(error => <p>{error}</p>)}
             </Alert>
         );
+    } else if (this.props.errors.length > 0) {
+      return (
+        <Button onClick={() => this.setState({show: true})} size="sm" variant="light">
+           Show Alert
+        </Button>
+      )
     } else {
       return null
     }
