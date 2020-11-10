@@ -8,7 +8,8 @@ export const addPost = (data) => {
             if(!data.errors) {
                 dispatch({type: 'ADD_POST', post: response.data.data})
             } else {
-                dispatch({type: 'ADD_POST_FAILED', post: data.post.errors})
+                dispatch({type: 'ADD_POST_FAILED', post: data.post.errors});
+                dispatch({type: 'CLEAR_ERROR'});
             }
         })
     }
