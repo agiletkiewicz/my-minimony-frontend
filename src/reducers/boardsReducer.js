@@ -10,7 +10,12 @@ export default (state = [], action) => {
           }  
         ))
       case 'ADD_BOARD':
-        return [...state, action.board];
+        let board = {
+          id: action.board.attributes.id,
+          title: action.board.attributes.title,
+          posts: []
+        }  
+        return [...state, board];
       case 'ADD_SAVE':
         debugger
         return state.map( board => (
