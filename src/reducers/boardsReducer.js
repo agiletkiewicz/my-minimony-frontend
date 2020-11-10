@@ -16,6 +16,8 @@ export default (state = [], action) => {
         return state.map( board => (
           board.id === action.payload.boardId ? {...board, posts: [...board.posts, action.payload.postId]} : board
         ))
+      case 'LOGOUT_USER':
+        return [];
       default: 
         return state;
     }
