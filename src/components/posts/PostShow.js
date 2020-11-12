@@ -25,7 +25,8 @@ class PostShow extends React.Component {
   renderButton = () => {
       let save = this.saved();
       if (save) {
-        return <RemoveSaveButton save={save} />
+        const savedBoard = this.props.boards.find( board => board.id === save.boardId ) 
+        return <RemoveSaveButton save={save} board={savedBoard}/>
       } else {
           return <SaveButton postId={this.props.post.id}/>
       };
@@ -38,13 +39,9 @@ class PostShow extends React.Component {
 
     return (
         <Container>
+            <br />
             <Row>
                 <Col xs={1}>
-                    <Link to={"/"}>
-                    <h2>{"<"}</h2>
-                    </Link>
-                    <br/>
-                    home
                 </Col>
                 <Col>
                     <Image src={this.props.post.imageUrl} fluid />

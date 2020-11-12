@@ -21,7 +21,7 @@ class RemoveSaveButton extends React.Component {
                 {/* <h4>Saved to: </h4> */}
                 {/* <Board key={this.props.board.id} board={this.props.board} /> */}
                 <br />
-                <Button variant="light" onClick={this.handleClick}>Remove from board</Button>
+        <Button variant="light" onClick={this.handleClick}>Remove from <b>{this.props.board.title}</b> board</Button>
             </>
         )
     }

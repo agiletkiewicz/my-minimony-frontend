@@ -8,7 +8,6 @@ export default (state = [], action) => {
           }
         return newState;
       case 'ADD_SAVE':
-        debugger
         return [...state, action.save];
       case 'DELETE_SAVE':
         return state.filter( save => (
