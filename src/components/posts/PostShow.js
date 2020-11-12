@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import { Link } from 'react-router-dom';
 import SaveButton from './SaveButton';
+import RemoveSaveButton from './RemoveSaveButton';
 import { connect } from 'react-redux';
 import Board from '../boards/Board';
 
@@ -24,7 +25,7 @@ class PostShow extends React.Component {
   renderButton = () => {
       let board = this.saved();
       if (board) {
-        return <><h4>Saved to: </h4><Board key={board.id} board={board} /></>
+        return <RemoveSaveButton board={board} postId={this.props.post.id} />
       } else {
           return <SaveButton postId={this.props.post.id}/>
       };

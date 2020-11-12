@@ -42,6 +42,7 @@ class BoardShow extends Component {
                     back
                 </Col>
                 <Col>
+                    {console.log(this.state.posts)}
                     <Posts posts={this.state.posts}/>
                 </Col>
             </Row>
