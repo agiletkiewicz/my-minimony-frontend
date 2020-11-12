@@ -9,6 +9,10 @@ export default (state = [], action) => {
         return newState;
       case 'ADD_SAVE':
         return state;
+      case 'DELETE_SAVE':
+        return state.filter( save => (
+          save.id !== action.save
+        )) 
       case 'LOGOUT_USER':
         return [];
       default: 

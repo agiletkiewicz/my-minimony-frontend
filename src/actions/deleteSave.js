@@ -9,7 +9,7 @@ export const deleteSave = (saveId) => {
             }
         })
         .then(resp => resp.json())
-        .then(parsedResp => console.log("success"))
+        .then(parsedResp => dispatch({type: 'DELETE_SAVE', save: saveId}))
         .catch(error => dispatch({type: 'ADD_ERROR', error: "Something went wrong. Try again."}))
     }
 }
