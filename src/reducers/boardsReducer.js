@@ -14,10 +14,10 @@ export default (state = [], action) => {
           title: action.board.attributes.title
         }  
         return [...state, board];
-      // case 'ADD_SAVE':
-      //   return state.map( board => (
-      //     board.id === action.payload.boardId ? {...board, posts: [...board.posts, action.payload.postId]} : board
-      //   ))
+      case 'DELETE_BOARD':
+        return state.filter( board => (
+          board.id !== action.board
+        )) 
       case 'LOGOUT_USER':
         return [];
       default: 

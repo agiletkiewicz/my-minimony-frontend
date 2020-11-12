@@ -13,6 +13,10 @@ export default (state = [], action) => {
         return state.filter( save => (
           save.id !== action.save
         )) 
+      case 'DELETE_BOARD':
+        return state.filter( save => (
+          save.boardId !== action.board
+        )) 
       case 'LOGOUT_USER':
         return [];
       default: 

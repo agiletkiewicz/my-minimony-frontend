@@ -10,6 +10,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import { Link } from 'react-router-dom';
 import Posts from '../posts/Posts';
+import RemoveBoardButton from './RemoveBoardButton';
 
 class BoardShow extends Component {
 
@@ -33,6 +34,9 @@ class BoardShow extends Component {
 
     return (
         <Container>
+            <Row>
+                <RemoveBoardButton board={this.props.board} history={this.props.history}/>
+            </Row>
             <Row>
                 <Col xs={1}>
                     <Link to={"/boards"}>

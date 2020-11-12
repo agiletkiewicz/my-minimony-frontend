@@ -36,7 +36,7 @@ class App extends React.Component {
   renderBoard = (routerProps) => {
     let boardId = parseInt(routerProps.match.params.id);
     let board = this.props.boards.find( obj => parseInt(obj.id) === boardId );
-    return ( board ? <BoardShow board={board}/> : null)
+    return ( board ? <BoardShow board={board} {...routerProps}/> : null)
   }
 
 
@@ -51,7 +51,7 @@ class App extends React.Component {
             <Route exact path="/posts/new" component={PostsInput} />
             <Route path="/posts/:id" render = {this.renderPost} />
             <Route exact path="/boards" component={BoardsContainer} />
-            <Route path="/boards/:id" render = {this.renderBoard} />
+            <Route path="/boards/:id" render = {this.renderBoard}/>
             <Route 
               exact path='/login' 
               render={props => (
