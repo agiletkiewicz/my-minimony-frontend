@@ -13,19 +13,19 @@ import Board from '../boards/Board';
 class PostShow extends React.Component {  
 
   saved = () => {
-    let board = false;
-    for (const element of this.props.boards) {
-        if (element.posts.includes(this.props.post.id)) {
-            board = element
+    let save = false;
+    for (const element of this.props.saves) {
+        if (element.postId === this.props.post.id) {
+            save = element
         }
     };
-    return board;
+    return save;
   }
 
   renderButton = () => {
-      let board = this.saved();
-      if (board) {
-        return <RemoveSaveButton board={board} postId={this.props.post.id} />
+      let save = this.saved();
+      if (save) {
+        return <RemoveSaveButton save={save} />
       } else {
           return <SaveButton postId={this.props.post.id}/>
       };
@@ -63,7 +63,8 @@ class PostShow extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        boards: state.boards
+        boards: state.boards,
+        saves: state.saves
     }
 }
  

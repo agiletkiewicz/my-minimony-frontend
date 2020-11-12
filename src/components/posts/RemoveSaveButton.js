@@ -11,15 +11,15 @@ class RemoveSaveButton extends React.Component {
 
     handleClick = (event) => {
         event.preventDefault();
-        this.props.deleteSave(this.props.postId, this.props.board.id);
+        this.props.deleteSave(this.props.save.id);
     }
 
     render() {
         return (
             <>
                 <br />
-                <h4>Saved to: </h4>
-                <Board key={this.props.board.id} board={this.props.board} />
+                {/* <h4>Saved to: </h4> */}
+                {/* <Board key={this.props.board.id} board={this.props.board} /> */}
                 <br />
                 <Button variant="light" onClick={this.handleClick}>Remove from board</Button>
             </>
