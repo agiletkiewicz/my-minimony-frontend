@@ -13,7 +13,7 @@ export const addSave = (boardId, postId) => {
             }),
         })
         .then(resp => resp.json())
-        .then(parsedResp => dispatch({type: 'ADD_SAVE', payload: {boardId, postId}}))
+        .then(parsedResp => dispatch({type: 'ADD_SAVE', save: parsedResp.save.data.attributes}))
         .catch(error => dispatch({type: 'ADD_ERROR', error: "Something went wrong. Try again."}))
     }
 }

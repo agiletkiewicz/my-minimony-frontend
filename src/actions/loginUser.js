@@ -8,6 +8,7 @@ export const loginUser = (data) => {
         if (response.data.logged_in) {
             dispatch({type: 'LOGIN_USER', user: response.data.user.data.attributes});
             dispatch({type: 'FETCH_BOARDS', boards: response.data.boards.data});
+            dispatch({type: 'FETCH_SAVES', saves: response.data.boards.included});
             dispatch({type: 'CLEAR_ERROR'});
         } else {
             dispatch({type: 'ADD_ERROR', error: "Can't verify account"});

@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import { Link } from 'react-router-dom';
 import SaveButton from './SaveButton';
+import RemoveSaveButton from './RemoveSaveButton';
 import { connect } from 'react-redux';
 import Board from '../boards/Board';
 
@@ -12,19 +13,20 @@ import Board from '../boards/Board';
 class PostShow extends React.Component {  
 
   saved = () => {
-    let board = false;
-    for (const element of this.props.boards) {
-        if (element.posts.includes(this.props.post.id)) {
-            board = element
+    let save = false;
+    for (const element of this.props.saves) {
+        if (element.postId === this.props.post.id) {
+            save = element
         }
     };
-    return board;
+    return save;
   }
 
   renderButton = () => {
-      let board = this.saved();
-      if (board) {
-        return <><h4>Saved to: </h4><Board key={board.id} board={board} /></>
+      let save = this.saved();
+      if (save) {
+        const savedBoard = this.props.boards.find( board => board.id === save.boardId ) 
+        return <RemoveSaveButton save={save} board={savedBoard}/>
       } else {
           return <SaveButton postId={this.props.post.id}/>
       };
@@ -37,13 +39,9 @@ class PostShow extends React.Component {
 
     return (
         <Container>
+            <br />
             <Row>
                 <Col xs={1}>
-                    <Link to={"/"}>
-                    <h2>{"<"}</h2>
-                    </Link>
-                    <br/>
-                    home
                 </Col>
                 <Col>
                     <Image src={this.props.post.imageUrl} fluid />
@@ -62,7 +60,8 @@ class PostShow extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        boards: state.boards
+        boards: state.boards,
+        saves: state.saves
     }
 }
  
