@@ -26,10 +26,12 @@ function Board(props) {
         </Link> */}
         {/* </Card> */}
         <Card className="bg-dark text-white">
-            <Card.Img src={props.board.image} alt="Card image" />
-            <Card.ImgOverlay>
-                <Card.Title><h3>{props.board.title}</h3></Card.Title>
-            </Card.ImgOverlay>
+                <Card.Body>
+                    <Card.Text>
+                        <h4>{props.board.title}</h4>
+                    </Card.Text>
+                </Card.Body>
+                <Card.Img src={props.board.image} alt="Card image" />
         </Card>
         </Link>
     )
