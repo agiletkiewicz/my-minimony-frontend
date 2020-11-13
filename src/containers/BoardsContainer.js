@@ -16,6 +16,8 @@ class BoardsContainer extends React.Component {
                 <Boards boards={this.props.boards}/>
                 <br />
                 <BoardInput />
+                <br />
+                <br />
             </div>
         )
     }

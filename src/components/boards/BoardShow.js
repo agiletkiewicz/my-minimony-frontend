@@ -34,9 +34,7 @@ class BoardShow extends Component {
 
     return (
         <Container>
-            <Row>
-                <RemoveBoardButton board={this.props.board} history={this.props.history}/>
-            </Row>
+            <br />
             <Row>
                 <Col xs={1}>
                     <Link to={"/boards"}>
@@ -50,6 +48,12 @@ class BoardShow extends Component {
                     <Posts posts={this.state.posts}/>
                 </Col>
             </Row>
+            <br />
+            <br />
+            <Row className="justify-content-md-center">
+                <RemoveBoardButton board={this.props.board} history={this.props.history}/>
+            </Row>
+            <br />
         </Container>
     )
     }
