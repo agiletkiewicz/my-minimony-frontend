@@ -13,7 +13,7 @@ class NavBar extends React.Component {
     return (
     <Navbar bg="light" expand="lg">
         <Nav className="mr-auto">
-            <LinkContainer to="/">
+            <LinkContainer to="/posts">
                 <Nav.Link>Home</Nav.Link>
             </LinkContainer>
             { 

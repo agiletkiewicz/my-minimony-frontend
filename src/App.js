@@ -9,6 +9,7 @@ import PostsInput from './components/posts/PostsInput';
 import PostShow from './components/posts/PostShow';
 import BoardShow from './components/boards/BoardShow';
 import NavBar from './components/NavBar';
+import Home from './components/Home';
 import Error from './components/Error';
 import Login from './components/users/Login';
 import Signup from './components/users/Signup';
@@ -47,7 +48,8 @@ class App extends React.Component {
             <NavBar />
             <Error />
             <Switch>
-            <Route exact path="/" component={PostsContainer} />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/posts" component={PostsContainer} />
             <Route exact path="/posts/new" component={PostsInput} />
             <Route path="/posts/:id" render = {this.renderPost} />
             <Route exact path="/boards" component={BoardsContainer} />

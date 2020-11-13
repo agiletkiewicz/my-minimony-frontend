@@ -36,13 +36,6 @@ class BoardShow extends Component {
         <Container>
             <br />
             <Row>
-                <Col xs={1}>
-                    <Link to={"/boards"}>
-                    <h2>{"<"}</h2>
-                    </Link>
-                    <br/>
-                    back
-                </Col>
                 <Col>
                     {console.log(this.state.posts)}
                     <Posts posts={this.state.posts}/>

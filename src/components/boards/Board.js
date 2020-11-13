@@ -2,6 +2,8 @@ import React from 'react';
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import { Link } from 'react-router-dom';
+import Image from 'react-bootstrap/Image'
+
 
 function Board(props) {
     return (
@@ -26,12 +28,14 @@ function Board(props) {
         </Link> */}
         {/* </Card> */}
         <Card className="bg-dark text-white">
+        <Card.Img src={props.board.image} alt="Card image" />
+            <Card.ImgOverlay>
                 <Card.Body bsPrefix={"board-heading"}>
                     <Card.Text>
-                        {props.board.title}
+                        <p>{props.board.title}</p>
                     </Card.Text>
                 </Card.Body>
-                <Card.Img src={props.board.image} alt="Card image" />
+            </Card.ImgOverlay>
         </Card>
         </Link>
     )
