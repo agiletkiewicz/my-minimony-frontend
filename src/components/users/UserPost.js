@@ -5,22 +5,16 @@ import { Link } from 'react-router-dom';
 
 function UserPost(props) {
     return (
-    <div className="img-hover-zoom">
-            <Card>
-                <Card.Img src={props.post.imageUrl}/>
-                <Card.ImgOverlay>
-                    {/* <Button variant="primary" type="submit" size="sm" disabled>
-                        Save
-                    </Button>{' '} */}
-                </Card.ImgOverlay>
-                <Card.Body>
-                    <Card.Title>{props.post.title}</Card.Title>
-                <Card.Text>{props.post.description.slice(0,149)}{props.post.description.length > 149 ? "..." : ""}</Card.Text>
-                    <Card.Link href="#">Card Link</Card.Link>
-                    <Card.Link href="#">Another Link</Card.Link>
-                </Card.Body>
-            </Card>
-     </div>
+        <Card style={{ width: '18rem' }}>
+            <Card.Img variant="top" src={props.post.attributes.imageUrl} />
+            <Card.Body>
+                <Card.Title>{props.post.attributes.title}</Card.Title>
+            </Card.Body>
+            <Card.Body>
+                <Card.Link href="#">View</Card.Link>
+                <Card.Link href="#">Delete</Card.Link>
+            </Card.Body>
+        </Card>
     )
 
 } 

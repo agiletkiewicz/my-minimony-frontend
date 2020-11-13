@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Container from 'react-bootstrap/Container';
+import UserPost from '../components/users/UserPost';
+import Profile from '../components/users/Profile';
+import CardDeck from 'react-bootstrap/CardDeck'
 
 
 class UserContainer extends Component {
@@ -13,7 +16,7 @@ class UserContainer extends Component {
   }
 
   componentDidMount() {
-        fetch(`http://localhost:3000/api/v1/users/${this.props.userId}/posts`)
+        fetch(`http://localhost:3000/api/v1/users/${this.props.user.id}/posts`)
         .then(resp => resp.json())
         .then(parsedResp => {
             this.setState({ posts: parsedResp.data })
@@ -24,9 +27,18 @@ class UserContainer extends Component {
     render() {
 
     return (
-        <Container>
-            {console.log(this.state.posts)}
-        </Container>
+        <div>
+            <br />
+            <Profile user={this.props.user} />
+            <br />
+            <h3>Your posts</h3>
+            <br />
+            <CardDeck>
+                {this.state.posts.map( post => (
+                    <UserPost post={post} />
+                ))}
+            </CardDeck>
+        </div>
     )
     }
 }

@@ -1,4 +1,9 @@
 
+h1#heading.profile {
+    font-family: 'Italianno', cursive;
+  }
+
+
 .jumbotron {
     background: url("https://images.unsplash.com/photo-1567956155799-f074a4568518?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80") no-repeat center center;
     background-size: cover;
@@ -20,6 +25,7 @@
     font-size: 30px;
     padding-left: 5%;
   }
+
 
 .board-heading {
     font-family: 'Italianno', cursive;

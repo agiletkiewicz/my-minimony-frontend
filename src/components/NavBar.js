@@ -6,6 +6,7 @@ import { LinkContainer } from "react-router-bootstrap";
 import Login from './users/Login';
 import { connect } from 'react-redux';
 import { logoutUser } from '../actions/logoutUser';
+import LoggedInNavBar from './users/LoggedInNavBar'
 
 class NavBar extends React.Component {
 
@@ -18,19 +19,12 @@ class NavBar extends React.Component {
             </LinkContainer>
             { 
               this.props.user.isLoggedIn ? 
-              <LinkContainer to="/posts/new"><Nav.Link>Add a post</Nav.Link></LinkContainer> : 
-              null
-            }
-            { 
-              this.props.user.isLoggedIn ? 
-              <LinkContainer to='/' onClick={this.props.logoutUser}><Nav.Link>Log Out</Nav.Link></LinkContainer> : 
+              <LoggedInNavBar logoutUser={this.props.logoutUser} /> : 
               <LinkContainer to="/signup"><Nav.Link>Signup</Nav.Link></LinkContainer>
             }
         </Nav>
           {
-            this.props.user.isLoggedIn ? 
-            <LinkContainer to="/boards"><Nav.Link>See your boards</Nav.Link></LinkContainer> :
-            <Login />
+            this.props.user.isLoggedIn ? null : <Login />
           }
     </Navbar>
   );

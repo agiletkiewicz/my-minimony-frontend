@@ -43,7 +43,7 @@ class App extends React.Component {
 
   renderUser = (routerProps) => {
     let userId = this.props.user.id;
-    return ( userId ? <UserContainer userId={userId} {...routerProps}/> : null)
+    return ( userId ? <UserContainer user={this.props.user} {...routerProps}/> : null)
   }
 
 
