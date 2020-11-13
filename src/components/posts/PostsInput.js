@@ -53,7 +53,7 @@ class PostsInput extends React.Component {
                         <Form.Label>URL</Form.Label>
                         <Form.Control type="text" name="url" onChange={this.handleChange} value={this.state.url}/>
                         <br />
-                        <Button variant="primary" type="submit">
+                        <Button variant="secondary" type="submit">
                             Submit
                         </Button>
                     </Form>

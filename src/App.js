@@ -5,6 +5,7 @@ import { fetchPosts } from './actions/fetchPosts';
 import { logoutUser } from './actions/logoutUser';
 import PostsContainer from './containers/PostsContainer';
 import BoardsContainer from './containers/BoardsContainer';
+import UserContainer from './containers/UserContainer';
 import PostsInput from './components/posts/PostsInput';
 import PostShow from './components/posts/PostShow';
 import BoardShow from './components/boards/BoardShow';
@@ -40,6 +41,11 @@ class App extends React.Component {
     return ( board ? <BoardShow board={board} {...routerProps}/> : null)
   }
 
+  renderUser = (routerProps) => {
+    let userId = this.props.user.id;
+    return ( userId ? <UserContainer userId={userId} {...routerProps}/> : null)
+  }
+
 
   render() {
     return (
@@ -49,11 +55,12 @@ class App extends React.Component {
             <Error />
             <Switch>
             <Route exact path="/" component={Home} />
+            <Route path="/users/:id" render={this.renderUser} />
             <Route exact path="/posts" component={PostsContainer} />
             <Route exact path="/posts/new" component={PostsInput} />
-            <Route path="/posts/:id" render = {this.renderPost} />
+            <Route path="/posts/:id" render={this.renderPost} />
             <Route exact path="/boards" component={BoardsContainer} />
-            <Route path="/boards/:id" render = {this.renderBoard}/>
+            <Route path="/boards/:id" render={this.renderBoard}/>
             <Route 
               exact path='/login' 
               render={props => (
@@ -77,7 +84,8 @@ const mapStateToProps = state => {
   return {
       posts: state.posts,
       errors: state.errors,
-      boards: state.boards
+      boards: state.boards,
+      user: state.user
   }
 }
 
