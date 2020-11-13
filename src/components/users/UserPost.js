@@ -12,7 +12,7 @@ function UserPost(props) {
             </Card.Body>
             <Card.Body>
                 <Card.Link href={`/posts/${props.post.attributes.id}`}>View</Card.Link>
-                <Card.Link href="#">Delete</Card.Link>
+                <Button variant="link" onClick={ () => props.deletePost(props.post.attributes.id)}>Delete</Button>
             </Card.Body>
         </Card>
     )

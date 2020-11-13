@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import UserPost from '../components/users/UserPost';
 import Profile from '../components/users/Profile';
 import CardDeck from 'react-bootstrap/CardDeck';
+import CardGroup from 'react-bootstrap/CardGroup';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
@@ -18,12 +19,28 @@ class UserContainer extends Component {
   }
 
   componentDidMount() {
-        fetch(`http://localhost:3000/api/v1/users/${this.props.user.id}/posts`)
-        .then(resp => resp.json())
-        .then(parsedResp => {
-            this.setState({ posts: parsedResp.data })
-        })
+    fetch(`http://localhost:3000/api/v1/users/${this.props.user.id}/posts`)
+    .then(resp => resp.json())
+    .then(parsedResp => {
+        this.setState({ posts: parsedResp.data })
+    })
   }
+
+  deletePost = (postId) => {
+    fetch(`http://localhost:3000/api/v1/posts/${postId}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+    .then(resp => resp.json())
+    .then(parsedResp => this.setState({
+        posts: this.state.posts.filter( post => post.attributes.id !== postId)
+    }))
+    // .catch(error => dispatch({type: 'ADD_ERROR', error: "Something went wrong. Try again."}))
+  }
+
+
 
 
     render() {
@@ -38,7 +55,7 @@ class UserContainer extends Component {
             <div className="posts-container">
                 <CardDeck>
                     {this.state.posts.map( post => (
-                        <UserPost post={post} />
+                        <UserPost post={post} deletePost={this.deletePost}/>
                     ))}
                 </CardDeck>
             </div>
@@ -47,4 +64,4 @@ class UserContainer extends Component {
     }
 }
 
-export default UserContainer;
+export default connect(null)(UserContainer);
