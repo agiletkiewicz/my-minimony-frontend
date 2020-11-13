@@ -3,10 +3,7 @@ export default (state = [], action) => {
     switch (action.type) {
       case 'FETCH_BOARDS':
         return action.boards.map( board => (
-          {
-            id: board.attributes.id,
-            title: board.attributes.title
-          }  
+          board.attributes
         ))
       case 'ADD_BOARD':
         let board = {
