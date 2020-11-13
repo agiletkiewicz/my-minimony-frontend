@@ -11,7 +11,7 @@ class BoardsContainer extends React.Component {
         return ( 
             <div>
                 <br />
-                <h1>Your boards</h1>
+                <h1 className="styled-heading">Boards</h1>
                 <br />
                 <Boards boards={this.props.boards}/>
                 <br />
