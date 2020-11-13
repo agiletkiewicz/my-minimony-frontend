@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import Container from 'react-bootstrap/Container';
 import UserPost from '../components/users/UserPost';
 import Profile from '../components/users/Profile';
-import CardDeck from 'react-bootstrap/CardDeck'
+import CardDeck from 'react-bootstrap/CardDeck';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 
 class UserContainer extends Component {
@@ -31,13 +33,15 @@ class UserContainer extends Component {
             <br />
             <Profile user={this.props.user} />
             <br />
-            <h3>Your posts</h3>
+            <h3>Your posts:</h3>
             <br />
-            <CardDeck>
-                {this.state.posts.map( post => (
-                    <UserPost post={post} />
-                ))}
-            </CardDeck>
+            <div className="posts-container">
+                <CardDeck>
+                    {this.state.posts.map( post => (
+                        <UserPost post={post} />
+                    ))}
+                </CardDeck>
+            </div>
         </div>
     )
     }

@@ -9,8 +9,8 @@ function Profile(props) {
         <div>
             <h1 className="profile" id="heading">Profile</h1>
             <br />
-            <p>{props.user.name}</p>
-            <p>Username: {props.user.username}</p>
+            <h2>{props.user.name}</h2>
+            <h4>Username: {props.user.username}</h4>
             <br />
         </div>
     )
