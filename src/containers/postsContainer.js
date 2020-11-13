@@ -54,10 +54,12 @@ class PostsContainer extends React.Component {
         }
 
         return (
-        <div>
+        <>
             <SearchBar />
-            <Posts posts={posts} />
-        </div>
+            <div className="posts-container">
+                <Posts posts={posts} />
+            </div>
+        </>
         )
     }
 } 

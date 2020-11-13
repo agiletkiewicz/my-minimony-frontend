@@ -1,8 +1,27 @@
-* {
-    font-family: 'Barlow', sans-serif;
-}
+
 
 .board-heading {
     font-family: 'Italianno', cursive;
     font-size: 50px;
+    background-color: #ecb7bf;
+}
+
+.posts-container {
+    padding-left: 8%;
+    padding-right: 8%;
+    padding-top: 2%;
+}
+
+.img-hover-zoom {
+    /* overflow: hidden; */
+}
+  
+.img-hover-zoom {
+    transition: transform .5s ease;
+}
+  
+.img-hover-zoom:hover {
+    transform: scale(1.05);
+    z-index: 99 !important;
+    position: relative;
 }
