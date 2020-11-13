@@ -26,9 +26,9 @@ function Board(props) {
         </Link> */}
         {/* </Card> */}
         <Card className="bg-dark text-white">
-                <Card.Body>
+                <Card.Body bsPrefix={"board-heading"}>
                     <Card.Text>
-                        <h4>{props.board.title}</h4>
+                        {props.board.title}
                     </Card.Text>
                 </Card.Body>
                 <Card.Img src={props.board.image} alt="Card image" />
