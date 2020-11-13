@@ -11,7 +11,7 @@ function LoggedInNavBar(props) {
             <>
                 <LinkContainer to="/posts/new"><Nav.Link>Add a post</Nav.Link></LinkContainer>
                 <LinkContainer to="/boards"><Nav.Link>Boards</Nav.Link></LinkContainer>
-                <LinkContainer to="/users/:id"><Nav.Link>Profile</Nav.Link></LinkContainer>
+                <LinkContainer to={`/users/${props.user.id}`}><Nav.Link>Profile</Nav.Link></LinkContainer>
                 <LinkContainer to='/' onClick={props.logoutUser}><Nav.Link>Log Out</Nav.Link></LinkContainer>
             </>
   );

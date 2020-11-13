@@ -19,7 +19,7 @@ class NavBar extends React.Component {
             </LinkContainer>
             { 
               this.props.user.isLoggedIn ? 
-              <LoggedInNavBar logoutUser={this.props.logoutUser} /> : 
+              <LoggedInNavBar logoutUser={this.props.logoutUser} user={this.props.user}/> : 
               <LinkContainer to="/signup"><Nav.Link>Signup</Nav.Link></LinkContainer>
             }
         </Nav>
