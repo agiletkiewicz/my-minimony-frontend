@@ -36,7 +36,7 @@ render() {
 
   return (
     <>
-      <h2>Add a new board</h2>
+      <h4>Add a new board</h4>
       <Form inline onSubmit={this.handleSubmit} className="justify-content-md-center">
         <FormControl 
           type="text" 
