@@ -40,6 +40,7 @@ class PostsInput extends React.Component {
     render() {
         return (
         <Container>
+            <br />
             <Row className="justify-content-md-center">
                 <Col xs lg="5">
                     <h2>Add a new post</h2>

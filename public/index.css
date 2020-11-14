@@ -1,5 +1,5 @@
 
-h1#heading.profile {
+.styled-heading {
     font-family: 'Italianno', cursive;
     font-size: 50px;
   }
@@ -29,14 +29,16 @@ h1#heading.profile {
 
 
 .board-heading {
-    font-family: 'Italianno', cursive;
-    font-size: 50px;
-    /* background-color: #ecb7bf; */
+    /* font-family: 'Italianno', cursive; */
+    font-size: 30px;
+    color: black;
+    background-color: white;
 }
 
-.board-heading p {
+
+/* .board-heading p {
     text-shadow: 15px 15px 50px black;
-}
+} */
 
 .board-card {
     box-shadow: 6px 9px 12px 5px rgba(105,105,105,0.61);
