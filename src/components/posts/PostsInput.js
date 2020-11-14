@@ -43,28 +43,48 @@ class PostsInput extends React.Component {
 
     render() {
         return (
-        <Container>
-            <br />
-            <Row className="justify-content-md-center">
-                <Col xs lg="5">
-                    <h2>Add a new post</h2>
-                    <Form onSubmit={this.handleSubmit}>
-                        <Form.Label>Title</Form.Label>
-                        <Form.Control type="text" name="title" onChange={this.handleChange} value={this.state.title}/>
-                        <Form.Label>Description</Form.Label>
-                        <Form.Control as="textarea" name="description" onChange={this.handleChange} value={this.state.description}/>
-                        <Form.Label>Image URL</Form.Label>
-                        <Form.Control type="text" name="imageUrl" onChange={this.handleChange} value={this.state.imageUrl}/>
-                        <Form.Label>URL</Form.Label>
-                        <Form.Control type="text" name="url" onChange={this.handleChange} value={this.state.url}/>
-                        <br />
-                        <Button variant="secondary" type="submit">
-                            Submit
-                        </Button>
-                    </Form>
-                </Col>
-            </Row>
-        </Container>
+            <Container>
+                <br />
+                <Row className="justify-content-md-center">
+                    <Col xs lg="5">
+                        <h2>Add a new post</h2>
+                        <Form onSubmit={this.handleSubmit}>
+                            <Form.Label>Title</Form.Label>
+                            <Form.Control 
+                                type="text" 
+                                name="title" 
+                                onChange={this.handleChange} 
+                                value={this.state.title}
+                            />
+                            <Form.Label>Description</Form.Label>
+                            <Form.Control 
+                                as="textarea" 
+                                name="description" 
+                                onChange={this.handleChange} 
+                                value={this.state.description}
+                            />
+                            <Form.Label>Image URL</Form.Label>
+                            <Form.Control 
+                                type="text" 
+                                name="imageUrl" 
+                                onChange={this.handleChange} 
+                                value={this.state.imageUrl}
+                            />
+                            <Form.Label>URL</Form.Label>
+                            <Form.Control 
+                                type="text" 
+                                name="url" 
+                                onChange={this.handleChange} 
+                                value={this.state.url}
+                            />
+                            <br />
+                            <Button variant="secondary" type="submit">
+                                Submit
+                            </Button>
+                        </Form>
+                    </Col>
+                </Row>
+            </Container>
         )
     }
 

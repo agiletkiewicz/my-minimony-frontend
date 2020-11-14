@@ -12,7 +12,7 @@ class NavBar extends React.Component {
 
   render() {
     return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="light" expand="lg" sticky="top">
         <Nav className="mr-auto">
             <LinkContainer to="/posts">
                 <Nav.Link>Home</Nav.Link>

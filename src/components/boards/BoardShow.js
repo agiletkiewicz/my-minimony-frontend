@@ -11,6 +11,8 @@ import Row from 'react-bootstrap/Row';
 import { Link } from 'react-router-dom';
 import Posts from '../posts/Posts';
 import RemoveBoardButton from './RemoveBoardButton';
+import BoardShowPost from './BoardShowPost';
+import CardColumns from 'react-bootstrap/CardColumns'
 
 class BoardShow extends Component {
 
@@ -33,7 +35,12 @@ class BoardShow extends Component {
     if (this.state.posts.length > 0) {
         return (
             <>
-                <Posts posts={this.state.posts}/>
+                {/* <Posts posts={this.state.posts}/> */}
+                <CardColumns>
+                    {this.state.posts.map(post => (
+                        <BoardShowPost post={post.attributes}/>
+                    ))}
+                </CardColumns>
             </>
         )
     } else {

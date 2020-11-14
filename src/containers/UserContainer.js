@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import UserPost from '../components/users/UserPost';
 import Profile from '../components/users/Profile';
 import CardDeck from 'react-bootstrap/CardDeck';
-import CardGroup from 'react-bootstrap/CardGroup';
+import CardColumns from 'react-bootstrap/CardColumns';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
@@ -53,11 +53,11 @@ class UserContainer extends Component {
             <h3>Your posts:</h3>
             <br />
             <div className="posts-container">
-                <CardDeck>
+                <CardColumns>
                     {this.state.posts.map( post => (
                         <UserPost post={post} deletePost={this.deletePost}/>
                     ))}
-                </CardDeck>
+                </CardColumns>
             </div>
         </div>
     )

@@ -1,26 +1,35 @@
 import React from 'react';
-import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
-import { Link } from 'react-router-dom';
-import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 import { connect } from 'react-redux';
 import { deleteBoard } from '../../actions/deleteBoard';
-import Board from '../boards/Board';
+import { Redirect } from 'react-router-dom';
 
 class RemoveBoardButton extends React.Component {
 
+    constructor() {
+        super();
+        this.state = {
+            redirect: false
+        }
+    }
+
     handleClick = (event) => {
         event.preventDefault();
-        this.props.deleteBoard(this.props.board.id);
-        this.props.history.push('/boards');
+        this.props.deleteBoard(this.props.board.id, this.handleSuccess);
+    }
+
+    handleSuccess = () => { 
+        this.setState({ redirect: true });
     }
 
     render() {
+        if (this.state.redirect) {
+            return <Redirect to='/boards' />
+        }
         return (
-        <Button variant="danger" onClick={this.handleClick}>Delete board</Button>
+            <Button variant="danger" onClick={this.handleClick}>Delete board</Button>
         )
     }
-
 } 
 
 
