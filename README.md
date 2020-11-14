@@ -20,6 +20,7 @@ A web application created as part of the [Flatiron School's Online Web Developer
 
 * React front end
 * Redux to manage state
+* React Router for client-side routing
 * [Rails API backend](https://github.com/agiletkiewicz/my-minimony-backend)
 * React Bootstrap framework and CSS for styling 
 * Rails sessions Data and HTTP Cookies for user authentication
