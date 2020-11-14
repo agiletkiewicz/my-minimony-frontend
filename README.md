@@ -31,7 +31,7 @@ A web application created as part of the [Flatiron School's Online Web Developer
 ## Demo 🖥
 
 
-<!-- ![](virtual-swap-app.gif) -->
+![](homepage.gif)
 
 
 ### Get Started
