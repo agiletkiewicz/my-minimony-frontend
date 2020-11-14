@@ -29,6 +29,26 @@ class BoardShow extends Component {
       })
   }
 
+  renderPosts = () => {
+    if (this.state.posts.length > 0) {
+        return (
+            <>
+                <Posts posts={this.state.posts}/>
+            </>
+        )
+    } else {
+        return (
+            <>
+                <br />
+                <h4 className="styled-heading">No posts yet!</h4>
+                <Link to="/posts">
+                    <Button variant="link">Start browsing</Button>
+                </Link>
+            </>
+        )
+    }
+  }
+
 
     render() {
 
@@ -37,8 +57,10 @@ class BoardShow extends Component {
             <br />
             <Row>
                 <Col>
-                    {console.log(this.state.posts)}
-                    <Posts posts={this.state.posts}/>
+                    <br />
+                    <h4 className="styled-heading">{this.props.board.title}</h4>
+                    <br />
+                    {this.renderPosts()}
                 </Col>
             </Row>
             <br />
