@@ -25,13 +25,20 @@ handleChange = (event) => {
 
 handleSubmit = (event) => {
     event.preventDefault();
-    this.props.loginUser(this.state); 
-    this.setState({
-      username: '',
-      password: '',
-    })
+    this.props.loginUser(this.state, this.handleSuccess); 
+    // this.setState({
+    //   username: '',
+    //   password: '',
+    // })
   };
 
+
+handleSuccess = () => {
+  this.setState({
+    username: '',
+    password: '',
+  })
+}
 
 render() {
   const {username, password} = this.state
