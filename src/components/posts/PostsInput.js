@@ -25,13 +25,14 @@ class PostsInput extends React.Component {
         this.props.addPost(this.state, this.handleSuccess);
     }
 
-    handleSuccess = () => {
+    handleSuccess = (postId) => {
         this.setState({
             title: "",
             description: "",
             imageUrl: "",
             url: ""
         });
+        this.props.history.push(`/posts/${postId}`);
     }
 
     handleChange = (event) => {

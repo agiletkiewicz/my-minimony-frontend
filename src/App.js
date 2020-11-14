@@ -57,7 +57,7 @@ class App extends React.Component {
             <Route exact path="/" component={Home} />
             <Route path="/users/:id" render={this.renderUser} />
             <Route exact path="/posts" component={PostsContainer} />
-            <Route exact path="/posts/new" component={PostsInput} />
+            <Route exact path="/posts/new" render={props => (<PostsInput {...props}/>)} />
             <Route path="/posts/:id" render={this.renderPost} />
             <Route exact path="/boards" component={BoardsContainer} />
             <Route path="/boards/:id" render={this.renderBoard}/>
