@@ -6,6 +6,7 @@ import Image from 'react-bootstrap/Image';
 import SaveButton from './SaveButton';
 import RemoveSaveButton from './RemoveSaveButton';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
  
 class PostShow extends React.Component {  
@@ -25,8 +26,15 @@ class PostShow extends React.Component {
       if (save) {
         const savedBoard = this.props.boards.find( board => board.id === save.boardId ) 
         return <RemoveSaveButton save={save} board={savedBoard}/>
-      } else {
+      } else if (this.props.user.isLoggedIn) {
           return <SaveButton postId={this.props.post.id}/>
+      } else {
+          return (
+            <div>
+                <Link to="/signup">Signup </Link>
+                or login to save posts
+            </div>
+          )
       };
   }
   
@@ -47,7 +55,9 @@ class PostShow extends React.Component {
                 <Col>
                     <h3>{this.props.post.title}</h3>
                     <p>{this.props.post.description}</p>
-                    <a href={this.props.post.url} target="_blank">Go to {hostURL}</a>
+                    <a href={this.props.post.url}>Go to {hostURL}</a>
+                    <br />
+                    <br />
                     { this.renderButton() }
                 </Col>
             </Row>
@@ -59,7 +69,8 @@ class PostShow extends React.Component {
 const mapStateToProps = state => {
     return {
         boards: state.boards,
-        saves: state.saves
+        saves: state.saves, 
+        user: state.user
     }
 }
  

@@ -51,7 +51,7 @@ class UserContainer extends Component {
             <div className="posts-container">
                 <CardColumns>
                     {this.state.posts.map( post => (
-                        <UserPost post={post} deletePost={this.deletePost}/>
+                        <UserPost post={post} deletePost={this.deletePost} key={post.attributes.id}/>
                     ))}
                 </CardColumns>
             </div>

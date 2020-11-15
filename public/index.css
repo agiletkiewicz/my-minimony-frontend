@@ -4,7 +4,6 @@
     font-size: 50px;
   }
 
-
 .jumbotron {
     background: url("https://images.unsplash.com/photo-1567956155799-f074a4568518?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80") no-repeat center center;
     background-size: cover;
@@ -29,16 +28,10 @@
 
 
 .board-heading {
-    /* font-family: 'Italianno', cursive; */
     font-size: 30px;
     color: black;
     background-color: white;
 }
-
-
-/* .board-heading p {
-    text-shadow: 15px 15px 50px black;
-} */
 
 .board-card {
     box-shadow: 6px 9px 12px 5px rgba(105,105,105,0.61);
@@ -49,10 +42,6 @@
     padding-right: 8%;
     padding-top: 2%;
 }
-
-/* .img-hover-zoom { */
-    /* overflow: hidden; */
-/* } */
   
 .img-hover-zoom {
     transition: transform .5s ease;

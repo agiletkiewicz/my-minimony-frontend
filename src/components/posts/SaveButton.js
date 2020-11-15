@@ -36,7 +36,7 @@ class SaveButton extends React.Component {
             >
                 <option value="0">Choose a board...</option>
                 {this.props.boards.map( board => {
-                    return <option value={board.id}>{board.title}</option>
+                    return <option value={board.id} key={board.id}>{board.title}</option>
                 })}
             </Form.Control>
             <Button type="submit" className="my-1">

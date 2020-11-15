@@ -9,7 +9,7 @@ function Board(props) {
             <Card>
                     <Card.Body bsPrefix={"board-heading"}>
                         <Card.Text>
-                            <p>{props.board.title}</p>
+                            {props.board.title}
                         </Card.Text>
                     </Card.Body>
                     <Card.Img src={props.board.image} alt="Card image" />
