@@ -3,8 +3,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import FormControl from 'react-bootstrap/FormControl'
 import { connect } from 'react-redux';
-import { loginUser } from '/Users/Agi/Flatiron/code/react-project-build/my-minimony-frontend/src/actions/loginUser.js';
-import Alert from 'react-bootstrap/Alert';
+import { loginUser } from '../../actions/loginUser.js';
 
 class Login extends Component {
 
@@ -39,7 +38,7 @@ render() {
   const {username, password} = this.state
 
   return (
-    <>
+      <>
         <Form inline onSubmit={this.handleSubmit}>
           <FormControl 
             type="text" 

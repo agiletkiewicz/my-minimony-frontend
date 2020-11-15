@@ -5,7 +5,7 @@ import FormControl from 'react-bootstrap/FormControl'
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
-import { addUser } from '/Users/Agi/Flatiron/code/react-project-build/my-minimony-frontend/src/actions/addUser.js';
+import { addUser } from '../../actions/addUser.js';
 import { connect } from 'react-redux';
 
 class Signup extends Component {
@@ -37,29 +37,21 @@ class Signup extends Component {
         passwordConfirmation: passwordConfirmation
       }
       
-      this.props.addUser(user);
-
-      this.setState({
-        username: '',
-        name: '',
-        password: '',
-        passwordConfirmation: '',
-      })
-
-      this.props.history.push('/')
+      this.props.addUser(user, this.handleSuccess);
 
     };
 
-  handleErrors = () => {
-      return (
-        <div>
-          <ul>{this.state.errors.map((error) => {
-            return <li key={error}>{error}</li>
-          })}
-          </ul> 
-        </div>
-      )
-    }
+  handleSuccess = () => {
+    this.setState({
+      username: '',
+      name: '',
+      password: '',
+      passwordConfirmation: '',
+    })
+
+    this.props.history.push('/')
+  }
+
       
   render() {
 
@@ -110,10 +102,7 @@ class Signup extends Component {
           </Col>
         </Row>
       </Container>
-              // {
-              //   this.state.errors ? this.handleErrors() : null
-              // }
-        );
+    );
   }
 }
 export default connect(null, { addUser })(Signup);

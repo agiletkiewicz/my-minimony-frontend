@@ -1,15 +1,9 @@
 import React, { Component } from 'react';
-import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import FormControl from 'react-bootstrap/FormControl'
-import { connect } from 'react-redux';
-import { addBoard } from '../../actions/addBoard';
 import Col from 'react-bootstrap/Col';
-import Alert from 'react-bootstrap/Alert';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import { Link } from 'react-router-dom';
-import Posts from '../posts/Posts';
 import RemoveBoardButton from './RemoveBoardButton';
 import BoardShowPost from './BoardShowPost';
 import CardColumns from 'react-bootstrap/CardColumns'
@@ -35,7 +29,6 @@ class BoardShow extends Component {
     if (this.state.posts.length > 0) {
         return (
             <>
-                {/* <Posts posts={this.state.posts}/> */}
                 <CardColumns>
                     {this.state.posts.map(post => (
                         <BoardShowPost post={post.attributes}/>

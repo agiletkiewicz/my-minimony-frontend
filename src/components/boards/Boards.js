@@ -1,10 +1,9 @@
 import React from 'react';
-import Board from './Board'
-import BoardInput from './BoardInput';
+import Board from './Board';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
-import CardColumns from 'react-bootstrap/CardColumns'
+import CardColumns from 'react-bootstrap/CardColumns';
 
 
 function Boards(props) {

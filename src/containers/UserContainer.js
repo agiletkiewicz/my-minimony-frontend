@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Container from 'react-bootstrap/Container';
 import UserPost from '../components/users/UserPost';
 import Profile from '../components/users/Profile';
-import CardDeck from 'react-bootstrap/CardDeck';
 import CardColumns from 'react-bootstrap/CardColumns';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 
 
 class UserContainer extends Component {

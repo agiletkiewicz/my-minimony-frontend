@@ -4,8 +4,6 @@ import Button from 'react-bootstrap/Button';
 import FormControl from 'react-bootstrap/FormControl'
 import { connect } from 'react-redux';
 import { addBoard } from '../../actions/addBoard';
-import Col from 'react-bootstrap/Col';
-import Alert from 'react-bootstrap/Alert';
 
 class BoardInput extends Component {
 
@@ -35,21 +33,21 @@ render() {
   const { title } = this.state
 
   return (
-    <>
-      <h4>Add a new board</h4>
-      <Form inline onSubmit={this.handleSubmit} className="justify-content-md-center">
-        <FormControl 
-          type="text" 
-          placeholder="title" 
-          className="mr-sm-2" 
-          name="title"
-          value={title}
-          onChange={this.handleChange}
-        />
-        <Button variant="outline-success" type="submit">Add</Button>
-      </Form>
-      <br />
-    </>
+      <>
+        <h4>Add a new board</h4>
+        <Form inline onSubmit={this.handleSubmit} className="justify-content-md-center">
+          <FormControl 
+            type="text" 
+            placeholder="title" 
+            className="mr-sm-2" 
+            name="title"
+            value={title}
+            onChange={this.handleChange}
+          />
+          <Button variant="outline-success" type="submit">Add</Button>
+        </Form>
+        <br />
+      </>
       );
     }
 }

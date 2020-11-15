@@ -1,7 +1,6 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
-import { Link } from 'react-router-dom';
 
 function UserPost(props) {
     return (
@@ -16,7 +15,6 @@ function UserPost(props) {
             </Card.Body>
         </Card>
     )
-
 } 
 
 export default UserPost;
