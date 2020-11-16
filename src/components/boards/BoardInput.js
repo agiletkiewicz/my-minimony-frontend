@@ -1,56 +1,60 @@
 import React, { Component } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import FormControl from 'react-bootstrap/FormControl'
+import FormControl from 'react-bootstrap/FormControl';
 import { connect } from 'react-redux';
 import { addBoard } from '../../actions/addBoard';
 
 class BoardInput extends Component {
-
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       title: '',
-     };
+    };
   }
 
-handleChange = (event) => {
-    const {name, value} = event.target
+  handleChange = (event) => {
+    const { name, value } = event.target;
     this.setState({
-      [name]: value
-    })
+      [name]: value,
+    });
   };
 
-handleSubmit = (event) => {
+  handleSubmit = (event) => {
     event.preventDefault();
-    this.props.addBoard(this.state); 
+    this.props.addBoard(this.state);
     this.setState({
       title: '',
-    })
+    });
   };
 
-render() {
-  const { title } = this.state
+  render() {
+    const { title } = this.state;
 
-  return (
+    return (
       <>
         <h4>Add a new board</h4>
-        <Form inline onSubmit={this.handleSubmit} className="justify-content-md-center">
-          <FormControl 
-            type="text" 
-            placeholder="title" 
-            className="mr-sm-2" 
+        <Form
+          inline
+          onSubmit={this.handleSubmit}
+          className="justify-content-md-center"
+        >
+          <FormControl
+            type="text"
+            placeholder="title"
+            className="mr-sm-2"
             name="title"
             value={title}
             onChange={this.handleChange}
           />
-          <Button variant="outline-success" type="submit">Add</Button>
+          <Button variant="outline-success" type="submit">
+            Add
+          </Button>
         </Form>
         <br />
       </>
-      );
-    }
+    );
+  }
 }
-
 
 export default connect(null, { addBoard })(BoardInput);

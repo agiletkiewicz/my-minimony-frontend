@@ -1,40 +1,39 @@
 import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav'
-import { LinkContainer } from "react-router-bootstrap";
-import Login from './users/Login';
+import Nav from 'react-bootstrap/Nav';
+import { LinkContainer } from 'react-router-bootstrap';
 import { connect } from 'react-redux';
+import Login from './users/Login';
 import { logoutUser } from '../actions/logoutUser';
-import LoggedInNavBar from './users/LoggedInNavBar'
+import LoggedInNavBar from './users/LoggedInNavBar';
 
 class NavBar extends React.Component {
-
   render() {
     return (
-    <Navbar bg="light" expand="lg" sticky="top">
+      <Navbar bg="light" expand="lg" sticky="top">
         <Nav className="mr-auto">
-            <LinkContainer to="/posts">
-                <Nav.Link>Home</Nav.Link>
+          <LinkContainer to="/posts">
+            <Nav.Link>Home</Nav.Link>
+          </LinkContainer>
+          {this.props.user.isLoggedIn ? (
+            <LoggedInNavBar
+              logoutUser={this.props.logoutUser}
+              user={this.props.user}
+            />
+          ) : (
+            <LinkContainer to="/signup">
+              <Nav.Link>Signup</Nav.Link>
             </LinkContainer>
-            { 
-              this.props.user.isLoggedIn ? 
-              <LoggedInNavBar logoutUser={this.props.logoutUser} user={this.props.user}/> : 
-              <LinkContainer to="/signup"><Nav.Link>Signup</Nav.Link></LinkContainer>
-            }
+          )}
         </Nav>
-          {
-            this.props.user.isLoggedIn ? null : <Login />
-          }
-    </Navbar>
-  );
-}
-
-}
-
-const mapStateToProps = state => {
-  return {
-      user: state.user
+        {this.props.user.isLoggedIn ? null : <Login />}
+      </Navbar>
+    );
   }
 }
+
+const mapStateToProps = (state) => ({
+  user: state.user,
+});
 
 export default connect(mapStateToProps, { logoutUser })(NavBar);

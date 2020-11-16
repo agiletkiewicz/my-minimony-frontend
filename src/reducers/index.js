@@ -12,7 +12,7 @@ const rootReducer = combineReducers({
   boards: boardsReducer,
   saves: savesReducer,
   errors: errorsReducer,
-  search: searchReducer
+  search: searchReducer,
 });
 
 export default rootReducer;

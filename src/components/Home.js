@@ -4,21 +4,17 @@ import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 
 function Home(props) {
-
-    return ( 
-        <Jumbotron fluid className="jumbotron home">
-            <h1>My Minimony</h1>
-            <p>
-                Share and save ideas for your small wedding.
-            </p>
-            <p>
-                <Link to="/posts">
-                    <Button variant="secondary" >Start browsing</Button>
-                </Link>
-            </p>
-        </Jumbotron>
-    )
-} 
-
+  return (
+    <Jumbotron fluid className="jumbotron home">
+      <h1>My Minimony</h1>
+      <p>Share and save ideas for your small wedding.</p>
+      <p>
+        <Link to="/posts">
+          <Button variant="secondary">Start browsing</Button>
+        </Link>
+      </p>
+    </Jumbotron>
+  );
+}
 
 export default Home;
