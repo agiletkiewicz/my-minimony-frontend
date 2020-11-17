@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Alert from 'react-bootstrap/Alert';
 import Button from 'react-bootstrap/Button';
@@ -12,7 +13,9 @@ class Error extends React.Component {
   }
 
   render() {
-    if (this.props.errors.length > 0 && this.state.show) {
+    const { errors } = this.props;
+
+    if (errors.length > 0 && this.state.show) {
       return (
         <Alert
           inline
@@ -20,13 +23,13 @@ class Error extends React.Component {
           onClose={() => this.setState({ show: false })}
           dismissible
         >
-          {this.props.errors.map((error) => (
+          {errors.map((error) => (
             <p>{error}</p>
           ))}
         </Alert>
       );
     }
-    if (this.props.errors.length > 0) {
+    if (errors.length > 0) {
       return (
         <Button
           onClick={() => this.setState({ show: true })}
@@ -40,6 +43,10 @@ class Error extends React.Component {
     return null;
   }
 }
+
+Error.propTypes = {
+  errors: PropTypes.array,
+};
 
 const mapStateToProps = (state) => ({
   errors: state.errors,

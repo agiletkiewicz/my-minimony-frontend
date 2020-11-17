@@ -1,18 +1,23 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 
-function Board(props) {
+function Board({ board }) {
   return (
-    <Link to={`/boards/${props.board.id}`}>
+    <Link to={`/boards/${board.id}`}>
       <Card>
         <Card.Body bsPrefix="board-heading">
-          <Card.Text>{props.board.title}</Card.Text>
+          <Card.Text>{board.title}</Card.Text>
         </Card.Body>
-        <Card.Img src={props.board.image} alt="Card image" />
+        <Card.Img src={board.image} alt="Card image" />
       </Card>
     </Link>
   );
 }
+
+Board.propTypes = {
+  board: PropTypes.object,
+};
 
 export default Board;

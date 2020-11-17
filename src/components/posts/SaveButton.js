@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { connect } from 'react-redux';
@@ -47,6 +48,12 @@ class SaveButton extends React.Component {
     );
   }
 }
+
+SaveButton.propTypes = {
+  addSave: PropTypes.func,
+  postId: PropTypes.any,
+  boards: PropTypes.array,
+};
 
 const mapStateToProps = (state) => ({
   boards: state.boards,

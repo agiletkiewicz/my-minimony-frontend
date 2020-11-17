@@ -40,6 +40,8 @@ class PostsInput extends React.Component {
   };
 
   render() {
+    const { title, description, imageUrl, url } = this.state;
+
     return (
       <Container>
         <br />
@@ -52,28 +54,28 @@ class PostsInput extends React.Component {
                 type="text"
                 name="title"
                 onChange={this.handleChange}
-                value={this.state.title}
+                value={title}
               />
               <Form.Label>Description</Form.Label>
               <Form.Control
                 as="textarea"
                 name="description"
                 onChange={this.handleChange}
-                value={this.state.description}
+                value={description}
               />
               <Form.Label>Image URL</Form.Label>
               <Form.Control
                 type="text"
                 name="imageUrl"
                 onChange={this.handleChange}
-                value={this.state.imageUrl}
+                value={imageUrl}
               />
               <Form.Label>URL</Form.Label>
               <Form.Control
                 type="text"
                 name="url"
                 onChange={this.handleChange}
-                value={this.state.url}
+                value={url}
               />
               <br />
               <Button variant="secondary" type="submit">

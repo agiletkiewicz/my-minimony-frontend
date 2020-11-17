@@ -1,19 +1,24 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 
-function BoardShowPost(props) {
+function BoardShowPost({ post }) {
   return (
-    <Link to={`/posts/${props.post.id}`} className="home-page">
+    <Link to={`/posts/${post.id}`} className="home-page">
       <Card>
-        {console.log(props.post)}
-        <Card.Img src={props.post.imageUrl} />
+        {console.log(post)}
+        <Card.Img src={post.imageUrl} />
         <Card.Body>
-          <Card.Title>{props.post.title}</Card.Title>
+          <Card.Title>{post.title}</Card.Title>
         </Card.Body>
       </Card>
     </Link>
   );
 }
+
+BoardShowPost.propTypes = {
+  post: PropTypes.object,
+};
 
 export default BoardShowPost;

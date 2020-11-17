@@ -1,15 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-function Profile(props) {
+function Profile({ user }) {
   return (
     <div>
       <h1 className="styled-heading">Profile</h1>
       <br />
-      <h2>{props.user.name}</h2>
-      <h4>Username: {props.user.username}</h4>
+      <h2>{user.name}</h2>
+      <h4>Username: {user.username}</h4>
       <br />
     </div>
   );
 }
+
+Profile.propTypes = {
+  user: PropTypes.object,
+};
 
 export default Profile;

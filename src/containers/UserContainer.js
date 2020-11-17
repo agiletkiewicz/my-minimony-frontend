@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CardColumns from 'react-bootstrap/CardColumns';
+import PropTypes from 'prop-types';
 import UserPost from '../components/users/UserPost';
 import Profile from '../components/users/Profile';
 
 class UserContainer extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       posts: [],
     };
@@ -28,27 +29,30 @@ class UserContainer extends Component {
       },
     })
       .then((resp) => resp.json())
-      .then((parsedResp) =>
-        this.setState({
-          posts: this.state.posts.filter(
+      .then(() =>
+        this.setState((prevState) => ({
+          posts: prevState.posts.filter(
             (post) => post.attributes.id !== postId
           ),
-        })
+        }))
       );
     // .catch(error => dispatch({type: 'ADD_ERROR', error: "Something went wrong. Try again."}))
   };
 
   render() {
+    const { user } = this.props;
+    const { posts } = this.state;
+
     return (
       <div>
         <br />
-        <Profile user={this.props.user} />
+        <Profile user={user} />
         <br />
         <h3>Your posts:</h3>
         <br />
         <div className="posts-container">
           <CardColumns>
-            {this.state.posts.map((post) => (
+            {posts.map((post) => (
               <UserPost
                 post={post}
                 deletePost={this.deletePost}

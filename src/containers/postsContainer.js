@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Posts from '../components/posts/Posts';
 import SearchBar from '../components/SearchBar';
@@ -43,12 +44,13 @@ class PostsContainer extends React.Component {
   }
 
   render() {
-    let { posts } = this.props;
-    if (this.props.search.length > 0) {
-      posts = this.props.posts.filter(
+    let { posts, search } = this.props;
+
+    if (search.length > 0) {
+      posts = posts.filter(
         (post) =>
-          post.attributes.title.toLowerCase().includes(this.props.search) ||
-          post.attributes.description.toLowerCase().includes(this.props.search)
+          post.attributes.title.toLowerCase().includes(search) ||
+          post.attributes.description.toLowerCase().includes(search)
       );
     }
 
@@ -62,6 +64,13 @@ class PostsContainer extends React.Component {
     );
   }
 }
+
+PostsContainer.propTypes = {
+  history: PropTypes.any,
+  location: PropTypes.any,
+  search: PropTypes.string,
+  posts: PropTypes.array,
+};
 
 const mapStateToProps = (state) => ({
   posts: state.posts,

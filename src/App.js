@@ -1,9 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './App.css';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { fetchPosts } from './actions/fetchPosts';
-import { logoutUser } from './actions/logoutUser';
 import PostsContainer from './containers/PostsContainer';
 import BoardsContainer from './containers/BoardsContainer';
 import UserContainer from './containers/UserContainer';
@@ -83,6 +83,13 @@ class App extends React.Component {
   }
 }
 
+App.propTypes = {
+  fetchPosts: PropTypes.func,
+  fetchLoginStatus: PropTypes.func,
+  posts: PropTypes.array,
+  boards: PropTypes.array,
+};
+
 const mapStateToProps = (state) => ({
   posts: state.posts,
   errors: state.errors,
@@ -93,5 +100,4 @@ const mapStateToProps = (state) => ({
 export default connect(mapStateToProps, {
   fetchPosts,
   fetchLoginStatus,
-  logoutUser,
 })(App);

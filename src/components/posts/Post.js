@@ -1,18 +1,19 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 
-function Post(props) {
+function Post({ post }) {
   return (
     <div className="img-hover-zoom">
-      <Link to={`/posts/${props.post.id}`} className="home-page">
+      <Link to={`/posts/${post.id}`} className="home-page">
         <Card>
-          <Card.Img src={props.post.imageUrl} />
+          <Card.Img src={post.imageUrl} />
           <Card.Body>
-            <Card.Title>{props.post.title}</Card.Title>
+            <Card.Title>{post.title}</Card.Title>
             <Card.Text>
-              {props.post.description.slice(0, 149)}
-              {props.post.description.length > 149 ? '...' : ''}
+              {post.description.slice(0, 149)}
+              {post.description.length > 149 ? '...' : ''}
             </Card.Text>
           </Card.Body>
         </Card>
@@ -20,5 +21,9 @@ function Post(props) {
     </div>
   );
 }
+
+Post.propTypes = {
+  post: PropTypes.object,
+};
 
 export default Post;
