@@ -33,6 +33,7 @@ class BoardInput extends Component {
 
     return (
       <>
+        <br />
         <h4>Add a new board</h4>
         <Form
           inline
@@ -51,6 +52,8 @@ class BoardInput extends Component {
             Add
           </Button>
         </Form>
+        <br />
+        <br />
         <br />
       </>
     );

@@ -3,7 +3,7 @@ import './App.css';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { fetchPosts } from './actions/fetchPosts';
-import { logoutUser } from './actions/logoutUser';
+import { fetchLoginStatus } from './actions/fetchLoginStatus';
 import PostsContainer from './containers/PostsContainer';
 import BoardsContainer from './containers/BoardsContainer';
 import UserContainer from './containers/UserContainer';
@@ -15,7 +15,7 @@ import Home from './components/Home';
 import Error from './components/Error';
 import Login from './components/users/Login';
 import Signup from './components/users/Signup';
-import { fetchLoginStatus } from './actions/fetchLoginStatus';
+
 
 class App extends React.Component {
   componentDidMount() {
@@ -37,9 +37,7 @@ class App extends React.Component {
 
   renderUser = (routerProps) => {
     const userId = this.props.user.id;
-    return userId ? (
-      <UserContainer user={this.props.user} {...routerProps} />
-    ) : null;
+    return userId ? ( <UserContainer {...routerProps} /> ) : null;
   };
 
   render() {
@@ -93,5 +91,4 @@ const mapStateToProps = (state) => ({
 export default connect(mapStateToProps, {
   fetchPosts,
   fetchLoginStatus,
-  logoutUser,
 })(App);

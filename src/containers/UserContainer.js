@@ -28,24 +28,20 @@ class UserContainer extends Component {
       },
     })
       .then((resp) => resp.json())
-      .then((parsedResp) =>
-        this.setState({
-          posts: this.state.posts.filter(
+      .then(() =>
+        this.setState( previousState => ({
+          posts: previousState.posts.filter(
             (post) => post.attributes.id !== postId
           ),
-        })
-      );
-    // .catch(error => dispatch({type: 'ADD_ERROR', error: "Something went wrong. Try again."}))
+        }))
+      )
+      .catch( () => this.props.dispatch({type: 'ADD_ERROR', error: "Something went wrong. Try again."}))
   };
 
   render() {
     return (
       <div>
-        <br />
         <Profile user={this.props.user} />
-        <br />
-        <h3>Your posts:</h3>
-        <br />
         <div className="posts-container">
           <CardColumns>
             {this.state.posts.map((post) => (
@@ -62,8 +58,4 @@ class UserContainer extends Component {
   }
 }
 
-UserContainer.propTypes = {
-  user: PropTypes.string.isRequired,
-};
-
-export default connect(null)(UserContainer);
+export default connect(state => ({ user: state.user }))(UserContainer);

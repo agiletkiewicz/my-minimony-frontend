@@ -7,14 +7,8 @@ class BoardsContainer extends React.Component {
   render() {
     return (
       <div>
-        <br />
-        <h1 className="styled-heading">Boards</h1>
-        <br />
         <Boards boards={this.props.boards} />
-        <br />
         <BoardInput />
-        <br />
-        <br />
       </div>
     );
   }
