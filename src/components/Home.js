@@ -3,7 +3,7 @@ import Jumbotron from 'react-bootstrap/Jumbotron';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 
-function Home(props) {
+function Home() {
   return (
     <Jumbotron fluid className="jumbotron home">
       <h1>My Minimony</h1>

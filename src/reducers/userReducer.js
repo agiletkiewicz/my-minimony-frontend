@@ -22,8 +22,6 @@ export default (
         name: '',
         username: '',
       };
-    case 'LOGIN_USER_FAILED':
-      return { ...state, error: action.error };
     default:
       return state;
   }
