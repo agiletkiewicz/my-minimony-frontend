@@ -8,13 +8,14 @@ export const addPost = (data, handleSuccess) => (dispatch) => {
       { withCredentials: true }
     )
     .then((response) => {
-      if (!response.data.error) {
-        dispatch({ type: 'ADD_POST', post: response.data.data });
-        dispatch({ type: 'CLEAR_ERROR' });
-        handleSuccess(response.data.data.attributes.id);
-      } else {
-        dispatch({ type: 'ADD_ERROR', error: response.data.error });
-      }
+      if (response.data.error) {
+        return dispatch({ type: 'ADD_ERROR', error: response.data.error });
+      } 
+        
+      dispatch({ type: 'ADD_POST', post: response.data.data });
+      dispatch({ type: 'CLEAR_ERROR' });
+      handleSuccess(response.data.data.attributes.id);
+
     })
     .catch((error) =>
       dispatch({ type: 'ADD_ERROR', error: 'Something went wrong. Try again.' })

@@ -8,13 +8,14 @@ export const addBoard = (data) => (dispatch) => {
       { withCredentials: true }
     )
     .then((response) => {
-      debugger;
-      if (!response.data.error) {
-        dispatch({ type: 'ADD_BOARD', board: response.data.data });
-        dispatch({ type: 'CLEAR_ERROR' });
-      } else {
-        dispatch({ type: 'ADD_ERROR', error: response.data.error });
+
+      if (response.data.error) {
+        return dispatch({ type: 'ADD_ERROR', error: response.data.error });
       }
+
+      dispatch({ type: 'ADD_BOARD', board: response.data.data });
+      dispatch({ type: 'CLEAR_ERROR' });
+
     })
     .catch((error) =>
       dispatch({ type: 'ADD_ERROR', error: 'Something went wrong. Try again.' })
