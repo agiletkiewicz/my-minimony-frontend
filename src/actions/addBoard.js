@@ -10,14 +10,14 @@ export const addBoard = (data) => (dispatch) => {
     .then((response) => {
 
       if (response.data.error) {
-        return dispatch({ type: 'ADD_ERROR', error: response.data.error });
+        throw new Error(response.data.error)
       }
 
       dispatch({ type: 'ADD_BOARD', board: response.data.data });
       dispatch({ type: 'CLEAR_ERROR' });
 
     })
-    .catch((error) =>
-      dispatch({ type: 'ADD_ERROR', error: 'Something went wrong. Try again.' })
+    .catch((response) =>
+      dispatch({ type: 'ADD_ERROR', error: response.message })
     );
 };

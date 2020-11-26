@@ -8,9 +8,9 @@ export const loginUser = (data, handleSuccess) => (dispatch) => {
       { withCredentials: true }
     )
     .then((response) => {
-      
+
       if (!response.data.logged_in) {
-        return dispatch({ type: 'ADD_ERROR', error: response.data.error });
+        throw new Error(response.data.error)
       }
 
       dispatch({type: 'LOGIN_USER', user: response.data.user.data.attributes,});
@@ -20,7 +20,7 @@ export const loginUser = (data, handleSuccess) => (dispatch) => {
       handleSuccess();
 
     })
-    .catch((error) =>
-      dispatch({ type: 'ADD_ERROR', error: 'Something went wrong. Try again.' })
+    .catch((response) =>
+      dispatch({ type: 'ADD_ERROR', error: response.message })
     );
 };
