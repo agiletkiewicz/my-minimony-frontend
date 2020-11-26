@@ -9,7 +9,7 @@ export const loginUser = (data, handleSuccess) => (dispatch) => {
     )
     .then((response) => {
 
-      if (!response.data.logged_in) {
+      if (response.data.status === 401) {
         throw new Error(response.data.error)
       }
 
