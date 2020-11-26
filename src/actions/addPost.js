@@ -9,7 +9,8 @@ export const addPost = (data, handleSuccess) => (dispatch) => {
     )
     .then((response) => {
       if (response.data.error) {
-        return dispatch({ type: 'ADD_ERROR', error: response.data.error });
+        // return dispatch({ type: 'ADD_ERROR', error: response.data.error });
+        throw new Error(response.data.error)
       } 
         
       dispatch({ type: 'ADD_POST', post: response.data.data });
@@ -17,7 +18,8 @@ export const addPost = (data, handleSuccess) => (dispatch) => {
       handleSuccess(response.data.data.attributes.id);
 
     })
-    .catch((error) =>
+    .catch((response) =>
       dispatch({ type: 'ADD_ERROR', error: 'Something went wrong. Try again.' })
+      // dispatch({ type: 'ADD_ERROR', error: response })
     );
 };
