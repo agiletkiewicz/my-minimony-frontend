@@ -12,13 +12,17 @@ class Error extends React.Component {
     };
   }
 
+  clearError = () => {
+    this.props.dispatch({ type: 'CLEAR_ERROR' });
+  }
+
   render() {
       return (
         <Portal>
         <Alert
           inline
           variant="danger"
-          onClose={() => this.setState({ show: false })}
+          onClose={() => this.clearError()}
           dismissible
         >
           {this.props.errors.map((error) => (
