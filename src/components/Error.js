@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Alert from 'react-bootstrap/Alert';
 import Button from 'react-bootstrap/Button';
+import { Portal } from "react-portal";
 
 class Error extends React.Component {
   constructor() {
@@ -12,8 +13,36 @@ class Error extends React.Component {
   }
 
   render() {
-    if (this.props.errors.length > 0 && this.state.show) {
+    
+    // if (this.props.errors.length > 0 && this.state.show) {
+    //   return (
+    //     <Alert
+    //       inline
+    //       variant="danger"
+    //       onClose={() => this.setState({ show: false })}
+    //       dismissible
+    //     >
+    //       {this.props.errors.map((error) => (
+    //         <p>{error}</p>
+    //       ))}
+    //     </Alert>
+    //   );
+    // }
+    // if (this.props.errors.length > 0) {
+    //   return (
+    //     <Button
+    //       onClick={() => this.setState({ show: true })}
+    //       size="sm"
+    //       variant="light"
+    //     >
+    //       Show Alert
+    //     </Button>
+    //   );
+    // }
+    // return null;
+ 
       return (
+        <Portal>
         <Alert
           inline
           variant="danger"
@@ -24,20 +53,9 @@ class Error extends React.Component {
             <p>{error}</p>
           ))}
         </Alert>
+        </Portal>
       );
-    }
-    if (this.props.errors.length > 0) {
-      return (
-        <Button
-          onClick={() => this.setState({ show: true })}
-          size="sm"
-          variant="light"
-        >
-          Show Alert
-        </Button>
-      );
-    }
-    return null;
+    
   }
 }
 

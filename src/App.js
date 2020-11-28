@@ -39,12 +39,16 @@ class App extends React.Component {
     return userId ? ( <UserContainer {...routerProps} /> ) : null;
   };
 
+  error = () => {
+    return this.props.errors.length > 0
+  }
+
   render() {
     return (
       <div className="App">
         <Router>
           <NavBar />
-          <Error />
+          {this.error() && <Error />}
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/users/:id" render={this.renderUser} />
