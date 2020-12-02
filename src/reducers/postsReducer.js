@@ -3,7 +3,7 @@ export default (state = [], action) => {
     case 'FETCH_POSTS':
       return action.posts.data;
     case 'ADD_POST':
-      return [...state, action.post];
+      return [action.post, ...state];
     default:
       return state;
   }
