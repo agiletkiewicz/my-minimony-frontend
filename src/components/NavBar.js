@@ -7,18 +7,18 @@ import Login from './users/Login';
 import { logoutUser } from '../actions/logoutUser';
 import LoggedInNavBar from './users/LoggedInNavBar';
 
-class NavBar extends React.Component {
-  render() {
+function NavBar(props) {
+
     return (
       <Navbar bg="light" expand="lg" sticky="top">
         <Nav className="mr-auto">
           <LinkContainer to="/posts">
             <Nav.Link>Home</Nav.Link>
           </LinkContainer>
-          {this.props.user.isLoggedIn ? (
+          {props.user.isLoggedIn ? (
             <LoggedInNavBar
-              logoutUser={this.props.logoutUser}
-              user={this.props.user}
+              logoutUser={props.logoutUser}
+              user={props.user}
             />
           ) : (
             <LinkContainer to="/signup">
@@ -26,10 +26,10 @@ class NavBar extends React.Component {
             </LinkContainer>
           )}
         </Nav>
-        {this.props.user.isLoggedIn ? null : <Login />}
+        {props.user.isLoggedIn ? null : <Login />}
       </Navbar>
     );
-  }
+
 }
 
 const mapStateToProps = (state) => ({
