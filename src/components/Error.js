@@ -5,12 +5,7 @@ import Button from 'react-bootstrap/Button';
 import { Portal } from "react-portal";
 
 class Error extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      show: true,
-    };
-  }
+
 
   clearError = () => {
     this.props.dispatch({ type: 'CLEAR_ERROR' });
