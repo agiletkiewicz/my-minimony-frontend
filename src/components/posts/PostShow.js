@@ -39,7 +39,7 @@ class PostShow extends React.Component {
   };
 
   render() {
-    const hostURL = new URL(this.props.post.url).host;
+    const hostURL = this.props.post.url? new URL(this.props.post.url).host : null;
 
     return (
       <Container>
@@ -52,7 +52,7 @@ class PostShow extends React.Component {
           <Col>
             <h3>{this.props.post.title}</h3>
             <p>{this.props.post.description}</p>
-            <a href={this.props.post.url}>Go to {hostURL}</a>
+            {hostURL && <a href={this.props.post.url}>Go to {hostURL}</a>}
             <br />
             <br />
             {this.renderButton()}
