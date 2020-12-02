@@ -6,6 +6,7 @@ import Image from 'react-bootstrap/Image';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import SaveButton from './SaveButton';
+import BoardInput from '../boards/BoardInput';
 import RemoveSaveButton from './RemoveSaveButton';
 
 class PostShow extends React.Component {
@@ -28,7 +29,12 @@ class PostShow extends React.Component {
       return <RemoveSaveButton save={save} board={savedBoard} />;
     }
     if (this.props.user.isLoggedIn) {
-      return <SaveButton postId={this.props.post.id} />;
+      return (
+        <>
+          <SaveButton postId={this.props.post.id} />
+          <BoardInput />
+        </>
+      )
     }
     return (
       <div>
