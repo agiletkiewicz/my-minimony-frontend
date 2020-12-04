@@ -10,20 +10,20 @@ function Error(props) {
     props.dispatch({ type: 'CLEAR_ERROR' });
   }
 
-      return (
-        <Portal>
-        <Alert
-          inline
-          variant="danger"
-          onClose={() => clearError()}
-          dismissible
-        >
-          {props.errors.map((error) => (
-            <p>{error}</p>
-          ))}
-        </Alert>
-        </Portal>
-      );
+  return (
+    <Portal>
+    <Alert
+      inline
+      variant="danger"
+      onClose={() => clearError()}
+      dismissible
+    >
+      {props.errors.map((error) => (
+        <p>{error}</p>
+      ))}
+    </Alert>
+    </Portal>
+  );
     
 }
 

@@ -5,7 +5,7 @@ import { deleteSave } from '../../actions/deleteSave';
 
 function RemoveSaveButton(props) {
 
-  function handleClick(event) {
+  const handleClick = (event) => {
     event.preventDefault();
     props.deleteSave(props.save.id);
   };
