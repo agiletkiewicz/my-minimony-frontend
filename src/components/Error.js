@@ -6,7 +6,7 @@ import { Portal } from "react-portal";
 function Error(props) {
 
 
-  function clearError() {
+  const clearError = () => {
     props.dispatch({ type: 'CLEAR_ERROR' });
   }
 
@@ -15,7 +15,7 @@ function Error(props) {
     <Alert
       inline
       variant="danger"
-      onClose={() => clearError()}
+      onClose={clearError}
       dismissible
     >
       {props.errors.map((error) => (
