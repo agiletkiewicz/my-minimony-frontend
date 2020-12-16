@@ -11,6 +11,7 @@ export const fetchLoginStatus = () => (dispatch) => {
         });
         dispatch({ type: 'FETCH_BOARDS', boards: response.data.boards.data });
         dispatch({ type: 'FETCH_SAVES', saves: response.data.boards.included });
+        dispatch({ type: 'FETCH_FOLLOWS', follows: response.data.follows.included });
         dispatch({ type: 'CLEAR_ERROR' });
       }
     })

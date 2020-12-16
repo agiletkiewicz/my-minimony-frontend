@@ -5,6 +5,8 @@ import boardsReducer from './boardsReducer';
 import errorsReducer from './errorsReducer';
 import searchReducer from './searchReducer';
 import savesReducer from './savesReducer';
+import followsReducer from './followsReducer';
+
 
 const rootReducer = combineReducers({
   posts: postsReducer,
@@ -13,6 +15,7 @@ const rootReducer = combineReducers({
   saves: savesReducer,
   errors: errorsReducer,
   search: searchReducer,
+  follows: followsReducer
 });
 
 export default rootReducer;
