@@ -4,7 +4,6 @@ export const fetchLoginStatus = () => (dispatch) => {
   axios
     .get('http://localhost:3000/api/v1/logged_in', { withCredentials: true })
     .then((response) => {
-      {console.log(response)}
       if (response.data.logged_in) {
         dispatch({
           type: 'LOGIN_USER',
