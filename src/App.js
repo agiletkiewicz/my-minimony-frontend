@@ -14,6 +14,7 @@ import NavBar from './components/NavBar';
 import Home from './components/Home';
 import Error from './components/Error';
 import Signup from './components/users/Signup';
+import PostShowContainer from './containers/PostShowContainer';
 
 
 class App extends React.Component {
@@ -25,7 +26,7 @@ class App extends React.Component {
   renderPost = (routerProps) => {
     const postId = parseInt(routerProps.match.params.id);
     const post = this.props.posts.find((obj) => parseInt(obj.id) === postId);
-    return post ? <PostShow post={post.attributes} /> : null;
+    return post ? <PostShowContainer post={post.attributes} /> : null;
   };
 
   renderBoard = (routerProps) => {
