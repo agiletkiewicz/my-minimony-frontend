@@ -4,6 +4,7 @@ export const fetchLoginStatus = () => (dispatch) => {
   axios
     .get('http://localhost:3000/api/v1/logged_in', { withCredentials: true })
     .then((response) => {
+      {console.log(response)}
       if (response.data.logged_in) {
         dispatch({
           type: 'LOGIN_USER',
@@ -11,7 +12,7 @@ export const fetchLoginStatus = () => (dispatch) => {
         });
         dispatch({ type: 'FETCH_BOARDS', boards: response.data.boards.data });
         dispatch({ type: 'FETCH_SAVES', saves: response.data.boards.included });
-        dispatch({ type: 'FETCH_FOLLOWS', follows: response.data.follows.included });
+        dispatch({ type: 'FETCH_FOLLOWS', follows: response.data.follows.data });
         dispatch({ type: 'CLEAR_ERROR' });
       }
     })
