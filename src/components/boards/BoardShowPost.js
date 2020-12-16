@@ -6,7 +6,6 @@ function BoardShowPost(props) {
   return (
     <Link to={`/posts/${props.post.id}`} className="home-page">
       <Card>
-        {console.log(props.post)}
         <Card.Img src={props.post.imageUrl} />
         <Card.Body>
           <Card.Title>{props.post.title}</Card.Title>
