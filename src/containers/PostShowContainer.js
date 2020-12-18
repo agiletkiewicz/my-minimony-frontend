@@ -23,6 +23,8 @@ class PostShowContainer extends Component {
         return(
             <div>
                 <PostShow post={this.props.post}/>
+                <br />
+                <h1 className="styled-heading">Recommended boards:</h1>
                 <Boards boards={this.state.boards} />
             </div>
         )
