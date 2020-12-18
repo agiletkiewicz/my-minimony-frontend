@@ -4,6 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import CardColumns from 'react-bootstrap/CardColumns';
 import RemoveBoardButton from './RemoveBoardButton';
 import BoardShowPost from './BoardShowPost';
@@ -24,6 +25,10 @@ class BoardShow extends Component {
         this.setState({ posts: parsedResp.posts.data });
         this.setState({ board: parsedResp.board.data.attributes })
       });
+  }
+
+  ownedBoard = () => {
+
   }
 
   renderPosts = () => {
@@ -75,4 +80,4 @@ class BoardShow extends Component {
   }
 }
 
-export default BoardShow;
+export default connect(state => ({boards: state.boards}))(BoardShow);
