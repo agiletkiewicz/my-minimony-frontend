@@ -1,12 +1,14 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import { connect } from 'react-redux';
+import { followBoard } from '../../actions/followBoard';
+
 
 class FollowBoardButton extends React.Component {
 
   handleClick = (event) => {
     event.preventDefault();
-    // this.props.deleteBoard(this.props.board.id, this.handleSuccess);
+    this.props.followBoard(this.props.boardId, this.props.user.id);
   };
 
 
@@ -19,4 +21,4 @@ class FollowBoardButton extends React.Component {
   }
 }
 
-export default connect()(FollowBoardButton);
+export default connect(state => ({ user: state.user }), { followBoard })(FollowBoardButton);

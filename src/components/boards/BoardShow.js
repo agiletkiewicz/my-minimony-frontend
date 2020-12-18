@@ -35,7 +35,7 @@ class BoardShow extends Component {
     if (board) {
       return <RemoveBoardButton board={board} history={this.props.history}/>
     } else {
-      return <FollowBoardButton />
+      return <FollowBoardButton boardId={this.state.board.id} />
     }
   }
 
@@ -86,4 +86,4 @@ class BoardShow extends Component {
   }
 }
 
-export default connect(state => ({boards: state.boards}))(BoardShow);
+export default connect(state => ({ boards: state.boards }))(BoardShow);
