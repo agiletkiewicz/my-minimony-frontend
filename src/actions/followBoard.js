@@ -8,7 +8,7 @@ export const followBoard = (boardId, userId) => (dispatch) => {
     })
       .then((resp) => resp.json())
       .then((parsedResp) =>
-        dispatch({ type: 'ADD_FOLLOW', save: parsedResp.follow.data.attributes })
+        dispatch({ type: 'ADD_FOLLOW', follow: parsedResp.follow.data.attributes })
       )
       .catch((error) =>
         dispatch({ type: 'ADD_ERROR', error: 'Something went wrong. Try again.' })
