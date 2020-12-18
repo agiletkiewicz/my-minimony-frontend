@@ -6,7 +6,7 @@ export const deleteFollow = (followId) => (dispatch) => {
       },
     })
       .then((resp) => resp.json())
-      .then((parsedResp) => dispatch({ type: 'DELETE_FoLLOW', follow: followId }))
+      .then((parsedResp) => dispatch({ type: 'DELETE_FOLLOW', follow: followId }))
       .catch((error) =>
         dispatch({ type: 'ADD_ERROR', error: 'Something went wrong. Try again.' })
       );
