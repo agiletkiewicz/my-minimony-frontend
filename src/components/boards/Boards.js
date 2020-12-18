@@ -9,8 +9,6 @@ function Boards(props) {
   return (
     <Container>
       <br />
-      <h1 className="styled-heading">Boards</h1>
-      <br />
       <Row className="justify-content-center">
         <Col xs={10}>
           <CardColumns>

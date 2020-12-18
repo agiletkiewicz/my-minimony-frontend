@@ -7,8 +7,13 @@ class BoardsContainer extends React.Component {
   render() {
     return (
       <div>
+        <br />
+        <h1 className="styled-heading">Your boards</h1>
         <Boards boards={this.props.boards} />
         <BoardInput />
+        <br />
+        <h1 className="styled-heading">Followed boards</h1>
+        <Boards boards={this.props.follows} />
       </div>
     );
   }
@@ -16,6 +21,7 @@ class BoardsContainer extends React.Component {
 
 const mapStateToProps = (state) => ({
   boards: state.boards,
+  follows: state.follows
 });
 
 export default connect(mapStateToProps)(BoardsContainer);
