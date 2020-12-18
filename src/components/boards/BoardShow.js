@@ -35,7 +35,7 @@ class BoardShow extends Component {
 
     let save = false;
     for (const element of this.props.follows) {
-      if (element.id === this.props.boardId) {
+      if (element.boardId === this.props.boardId) {
         save = element;
       }
     }
@@ -48,17 +48,6 @@ class BoardShow extends Component {
       return <FollowBoardButton boardId={this.state.board.id} />
     }
   }
-
-  saved = () => {
-    let save = false;
-    for (const element of this.props.follows) {
-      if (element.followId === this.props.boardId) {
-        save = element;
-      }
-    }
-    return save;
-  };
-
 
   renderPosts = () => {
     if (this.state.posts.length > 0) {
