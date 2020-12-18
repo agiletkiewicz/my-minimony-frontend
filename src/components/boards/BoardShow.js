@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import CardColumns from 'react-bootstrap/CardColumns';
 import RemoveBoardButton from './RemoveBoardButton';
+import FollowBoardButton from './FollowBoardButton';
 import BoardShowPost from './BoardShowPost';
 
 class BoardShow extends Component {
@@ -28,9 +29,14 @@ class BoardShow extends Component {
   }
 
   ownedBoard = () => {
-    return this.props.boards.find( board => (
+    const board = this.props.boards.find( board => (
       board.id === this.state.board.id
     ))
+    if (board) {
+      return <RemoveBoardButton board={board} history={this.props.history}/>
+    } else {
+      return <FollowBoardButton />
+    }
   }
 
 
@@ -72,7 +78,7 @@ class BoardShow extends Component {
         <br />
         <br />
         <Row className="justify-content-md-center">
-          {this.ownedBoard() ? <RemoveBoardButton board={this.state.board} history={this.props.history}/> : null }
+          {this.ownedBoard()}
         </Row>
         <br />
       </Container>
