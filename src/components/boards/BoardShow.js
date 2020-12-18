@@ -32,12 +32,32 @@ class BoardShow extends Component {
     const board = this.props.boards.find( board => (
       board.id === this.state.board.id
     ))
+
+    let save = false;
+    for (const element of this.props.follows) {
+      if (element.id === this.props.boardId) {
+        save = element;
+      }
+    }
+
     if (board) {
       return <RemoveBoardButton board={board} history={this.props.history}/>
+    } else if (save) {
+      return
     } else {
       return <FollowBoardButton boardId={this.state.board.id} />
     }
   }
+
+  saved = () => {
+    let save = false;
+    for (const element of this.props.follows) {
+      if (element.followId === this.props.boardId) {
+        save = element;
+      }
+    }
+    return save;
+  };
 
 
   renderPosts = () => {
@@ -86,4 +106,4 @@ class BoardShow extends Component {
   }
 }
 
-export default connect(state => ({ boards: state.boards }))(BoardShow);
+export default connect(state => ({ boards: state.boards, follows: state.follows }))(BoardShow);
