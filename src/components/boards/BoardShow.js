@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import CardColumns from 'react-bootstrap/CardColumns';
 import RemoveBoardButton from './RemoveBoardButton';
 import FollowBoardButton from './FollowBoardButton';
+import RemoveFollowButton from './RemoveFollowButton';
 import BoardShowPost from './BoardShowPost';
 
 class BoardShow extends Component {
@@ -43,7 +44,7 @@ class BoardShow extends Component {
     if (board) {
       return <RemoveBoardButton board={board} history={this.props.history}/>
     } else if (save) {
-      return
+      return <RemoveFollowButton followId={save.id} />
     } else {
       return <FollowBoardButton boardId={this.state.board.id} />
     }
