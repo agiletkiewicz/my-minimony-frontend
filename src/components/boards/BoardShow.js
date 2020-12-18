@@ -28,8 +28,11 @@ class BoardShow extends Component {
   }
 
   ownedBoard = () => {
-
+    return this.props.boards.find( board => (
+      board.id === this.state.board.id
+    ))
   }
+
 
   renderPosts = () => {
     if (this.state.posts.length > 0) {
@@ -69,10 +72,7 @@ class BoardShow extends Component {
         <br />
         <br />
         <Row className="justify-content-md-center">
-          <RemoveBoardButton
-            board={this.state.board}
-            history={this.props.history}
-          />
+          {this.ownedBoard() ? <RemoveBoardButton board={this.state.board} history={this.props.history}/> : null }
         </Row>
         <br />
       </Container>
