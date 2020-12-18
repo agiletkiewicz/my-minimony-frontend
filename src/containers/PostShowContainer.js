@@ -23,7 +23,6 @@ class PostShowContainer extends Component {
         return(
             <div>
                 <PostShow post={this.props.post}/>
-                {console.log(this.state.boards)}
                 <Boards boards={this.state.boards} />
             </div>
         )

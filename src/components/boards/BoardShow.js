@@ -13,14 +13,16 @@ class BoardShow extends Component {
     super(props);
     this.state = {
       posts: [],
+      board: {}
     };
   }
 
   componentDidMount() {
-    fetch(`http://localhost:3000/api/v1/boards/${this.props.board.id}`)
+    fetch(`http://localhost:3000/api/v1/boards/${this.props.boardId}`)
       .then((resp) => resp.json())
       .then((parsedResp) => {
-        this.setState({ posts: parsedResp.data });
+        this.setState({ posts: parsedResp.posts.data });
+        this.setState({ board: parsedResp.board.data.attributes })
       });
   }
 
@@ -54,7 +56,7 @@ class BoardShow extends Component {
         <Row>
           <Col>
             <br />
-            <h4 className="styled-heading">{this.props.board.title}</h4>
+            <h4 className="styled-heading">{this.state.board.title}</h4>
             <br />
             {this.renderPosts()}
           </Col>
@@ -63,7 +65,7 @@ class BoardShow extends Component {
         <br />
         <Row className="justify-content-md-center">
           <RemoveBoardButton
-            board={this.props.board}
+            board={this.state.board}
             history={this.props.history}
           />
         </Row>

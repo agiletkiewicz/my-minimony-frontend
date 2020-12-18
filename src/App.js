@@ -32,7 +32,7 @@ class App extends React.Component {
   renderBoard = (routerProps) => {
     const boardId = parseInt(routerProps.match.params.id);
     const board = this.props.boards.find((obj) => parseInt(obj.id) === boardId);
-    return board ? <BoardShow board={board} {...routerProps} /> : null;
+    return <BoardShow board={board} boardId={boardId} {...routerProps} />;
   };
 
   renderUser = (routerProps) => {
