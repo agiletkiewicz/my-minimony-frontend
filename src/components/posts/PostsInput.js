@@ -68,6 +68,8 @@ class PostsInput extends React.Component {
                 onChange={this.handleChange}
                 value={this.state.imageUrl}
               />
+              <Form.Label>Upload Image</Form.Label>
+              <input type="file" name="image" accept="image/*" />
               <Form.Label>URL</Form.Label>
               <Form.Control
                 type="text"
