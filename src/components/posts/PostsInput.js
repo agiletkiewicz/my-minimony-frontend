@@ -15,12 +15,19 @@ class PostsInput extends React.Component {
       description: '',
       imageUrl: '',
       url: '',
+      image: null
     };
   }
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.addPost(this.state, this.handleSuccess);
+    const formData = new FormData();
+    formData.append('title', this.state.title);
+    formData.append('description', this.state.description);
+    formData.append('imageUrl', this.state.imageUrl);
+    formData.append('url', this.state.url);
+    formData.append('image', this.state.image);
+    this.props.addPost(formData, this.handleSuccess);
   };
 
   handleSuccess = (postId) => {
@@ -29,6 +36,7 @@ class PostsInput extends React.Component {
       description: '',
       imageUrl: '',
       url: '',
+      image: null
     });
     this.props.history.push(`/posts/${postId}`);
   };
@@ -38,6 +46,12 @@ class PostsInput extends React.Component {
       [event.target.name]: event.target.value,
     });
   };
+
+  handleImage = (event) => {
+    this.setState({
+      image: event.target.files[0]
+    })
+  }
 
   render() {
     return (
@@ -69,7 +83,7 @@ class PostsInput extends React.Component {
                 value={this.state.imageUrl}
               />
               <Form.Label>Upload Image</Form.Label>
-              <input type="file" name="image" accept="image/*" />
+              <input type="file" name="image" accept="image/*" onChange={this.handleImage}/>
               <Form.Label>URL</Form.Label>
               <Form.Control
                 type="text"
