@@ -25,9 +25,14 @@ class PostsInput extends React.Component {
     const formData = new FormData();
     formData.append('title', this.state.title);
     formData.append('description', this.state.description);
-    formData.append('imageUrl', this.state.imageUrl);
     formData.append('url', this.state.url);
-    formData.append('image', this.state.image);
+    
+    if (this.state.uploadImage) {
+      formData.append('image', this.state.image);
+    } else {
+      formData.append('imageUrl', this.state.imageUrl);
+    }
+
     this.props.addPost(formData, this.handleSuccess);
   };
 
@@ -37,7 +42,8 @@ class PostsInput extends React.Component {
       description: '',
       imageUrl: '',
       url: '',
-      image: null
+      image: null, 
+      uploadImage: true
     });
     this.props.history.push(`/posts/${postId}`);
   };
