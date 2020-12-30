@@ -15,7 +15,8 @@ class PostsInput extends React.Component {
       description: '',
       imageUrl: '',
       url: '',
-      image: null
+      image: null,
+      uploadImage: true
     };
   }
 
@@ -53,6 +54,42 @@ class PostsInput extends React.Component {
     })
   }
 
+  renderImageFormField = () => {
+    if (this.state.uploadImage) {
+      return (
+        <>
+        <Form.File id="formcheck-api-regular">
+        <Form.File.Label>Upload Image</Form.File.Label>
+          <Form.Row className="justify-content-md-center" >
+            <Col sm={3}>
+              <Form.File.Input 
+                name="image" 
+                accept="image/*" 
+                onChange={this.handleImage}
+                className="justify-content-md-center"
+              />
+           </Col>
+        </Form.Row>
+        </Form.File>
+        <Button variant="link" onClick={() => this.setState({ uploadImage: false })}>or provide image url</Button>
+        </>
+      )
+    } else {
+        return (
+          <>
+          <Form.Label>Image URL</Form.Label>
+            <Form.Control
+            type="text"
+            name="imageUrl"
+            onChange={this.handleChange}
+            value={this.state.imageUrl}
+            />
+          <Button variant="link" onClick={() => this.setState({ uploadImage: true })}>or upload image</Button>
+          </>
+        )
+    }
+  }
+
   render() {
     return (
       <Container>
@@ -77,8 +114,9 @@ class PostsInput extends React.Component {
                 value={this.state.description}
               />
               <br />
+              {this.renderImageFormField()}
               {/* <Form.Label>Upload Image OR provide Image URL</Form.Label> */}
-                  <Form.File id="formcheck-api-regular">
+                  {/* <Form.File id="formcheck-api-regular">
                   <Form.File.Label>Upload Image OR provide Image URL</Form.File.Label>
                     <Form.Row className="justify-content-md-center" >
                       <Col sm={3}>
@@ -90,14 +128,14 @@ class PostsInput extends React.Component {
                         />
                      </Col>
                   </Form.Row>
-                  </Form.File>
+                  </Form.File> */}
               {/* <input type="file" name="image" accept="image/*" onChange={this.handleImage}/> */}
-                  <Form.Control
+                  {/* <Form.Control
                     type="text"
                     name="imageUrl"
                     onChange={this.handleChange}
                     value={this.state.imageUrl}
-                  />
+                  /> */}
 
               <br />
               <br />
