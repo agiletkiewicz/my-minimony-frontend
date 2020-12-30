@@ -29,6 +29,7 @@ class SearchBar extends React.Component {
     event.preventDefault();
     this.props.dispatch({ type: 'CLEAR_SEARCH' });
   };
+  
 
   render() {
     return (
