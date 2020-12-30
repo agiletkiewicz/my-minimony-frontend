@@ -68,6 +68,7 @@ class PostsInput extends React.Component {
                 onChange={this.handleChange}
                 value={this.state.title}
               />
+              <br />
               <Form.Label>Description</Form.Label>
               <Form.Control
                 as="textarea"
@@ -75,16 +76,32 @@ class PostsInput extends React.Component {
                 onChange={this.handleChange}
                 value={this.state.description}
               />
-              <Form.Label>Image URL</Form.Label>
-              <Form.Control
-                type="text"
-                name="imageUrl"
-                onChange={this.handleChange}
-                value={this.state.imageUrl}
-              />
-              <Form.Label>Upload Image</Form.Label>
-              <input type="file" name="image" accept="image/*" onChange={this.handleImage}/>
-              <Form.Label>URL</Form.Label>
+              <br />
+              {/* <Form.Label>Upload Image OR provide Image URL</Form.Label> */}
+                  <Form.File id="formcheck-api-regular">
+                  <Form.File.Label>Upload Image OR provide Image URL</Form.File.Label>
+                    <Form.Row className="justify-content-md-center" >
+                      <Col sm={3}>
+                        <Form.File.Input 
+                          name="image" 
+                          accept="image/*" 
+                          onChange={this.handleImage}
+                          className="justify-content-md-center"
+                        />
+                     </Col>
+                  </Form.Row>
+                  </Form.File>
+              {/* <input type="file" name="image" accept="image/*" onChange={this.handleImage}/> */}
+                  <Form.Control
+                    type="text"
+                    name="imageUrl"
+                    onChange={this.handleChange}
+                    value={this.state.imageUrl}
+                  />
+
+              <br />
+              <br />
+              <Form.Label>Source URL <i>(optional)</i></Form.Label>
               <Form.Control
                 type="text"
                 name="url"
