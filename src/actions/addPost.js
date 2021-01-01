@@ -3,9 +3,10 @@ import axios from 'axios';
 export const addPost = (data, handleSuccess) => (dispatch) => {
   axios
     .post(
-      'http://localhost:3000/api/v1/posts',
-      { post: data },
-      { withCredentials: true }
+      'http://localhost:3000/api/v1/posts', data,
+      { withCredentials: true,     
+        headers: { 'content-type': 'multipart/form-data' }
+      }
     )
     .then((response) => {
       if (response.data.error) {

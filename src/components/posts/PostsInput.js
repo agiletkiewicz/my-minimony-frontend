@@ -15,12 +15,30 @@ class PostsInput extends React.Component {
       description: '',
       imageUrl: '',
       url: '',
+      image: null,
+      uploadImage: true
     };
   }
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.addPost(this.state, this.handleSuccess);
+
+    if (this.state.image === null && this.state.imageUrl === "") {
+      this.props.addImageError();
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('title', this.state.title);
+    formData.append('description', this.state.description);
+    formData.append('url', this.state.url);
+    formData.append('imageUrl', this.state.imageUrl);
+
+    if (this.state.image) {
+      formData.append('image', this.state.image);
+    }
+
+    this.props.addPost(formData, this.handleSuccess);
   };
 
   handleSuccess = (postId) => {
@@ -29,6 +47,8 @@ class PostsInput extends React.Component {
       description: '',
       imageUrl: '',
       url: '',
+      image: null, 
+      uploadImage: true
     });
     this.props.history.push(`/posts/${postId}`);
   };
@@ -38,6 +58,48 @@ class PostsInput extends React.Component {
       [event.target.name]: event.target.value,
     });
   };
+
+  handleImage = (event) => {
+    this.setState({
+      image: event.target.files[0]
+    })
+  }
+
+  renderImageFormField = () => {
+    if (this.state.uploadImage) {
+      return (
+        <>
+        <Form.File id="formcheck-api-regular">
+        <Form.File.Label>Upload Image</Form.File.Label>
+          <Form.Row className="justify-content-md-center" >
+            <Col sm={3}>
+              <Form.File.Input 
+                name="image" 
+                accept="image/*" 
+                onChange={this.handleImage}
+                className="justify-content-md-center"
+              />
+           </Col>
+        </Form.Row>
+        </Form.File>
+        <Button variant="link" onClick={() => this.setState({ uploadImage: false })}>or provide image url</Button>
+        </>
+      )
+    } else {
+        return (
+          <>
+          <Form.Label>Image URL</Form.Label>
+            <Form.Control
+            type="text"
+            name="imageUrl"
+            onChange={this.handleChange}
+            value={this.state.imageUrl}
+            />
+          <Button variant="link" onClick={() => this.setState({ uploadImage: true })}>or upload image</Button>
+          </>
+        )
+    }
+  }
 
   render() {
     return (
@@ -54,6 +116,7 @@ class PostsInput extends React.Component {
                 onChange={this.handleChange}
                 value={this.state.title}
               />
+              <br />
               <Form.Label>Description</Form.Label>
               <Form.Control
                 as="textarea"
@@ -61,14 +124,33 @@ class PostsInput extends React.Component {
                 onChange={this.handleChange}
                 value={this.state.description}
               />
-              <Form.Label>Image URL</Form.Label>
-              <Form.Control
-                type="text"
-                name="imageUrl"
-                onChange={this.handleChange}
-                value={this.state.imageUrl}
-              />
-              <Form.Label>URL</Form.Label>
+              <br />
+              {this.renderImageFormField()}
+              {/* <Form.Label>Upload Image OR provide Image URL</Form.Label> */}
+                  {/* <Form.File id="formcheck-api-regular">
+                  <Form.File.Label>Upload Image OR provide Image URL</Form.File.Label>
+                    <Form.Row className="justify-content-md-center" >
+                      <Col sm={3}>
+                        <Form.File.Input 
+                          name="image" 
+                          accept="image/*" 
+                          onChange={this.handleImage}
+                          className="justify-content-md-center"
+                        />
+                     </Col>
+                  </Form.Row>
+                  </Form.File> */}
+              {/* <input type="file" name="image" accept="image/*" onChange={this.handleImage}/> */}
+                  {/* <Form.Control
+                    type="text"
+                    name="imageUrl"
+                    onChange={this.handleChange}
+                    value={this.state.imageUrl}
+                  /> */}
+
+              <br />
+              <br />
+              <Form.Label>Source URL <i>(optional)</i></Form.Label>
               <Form.Control
                 type="text"
                 name="url"
@@ -91,4 +173,9 @@ const mapStateToProps = (state) => ({
   userId: state.user.id,
 });
 
-export default connect(mapStateToProps, { addPost })(PostsInput);
+const mapDispatchToProps = (dispatch) => ({
+  addPost: addPost(), 
+  addImageError: () => { dispatch({ type: 'ADD_ERROR', error: "must include image" })}
+})
+
+export default connect(mapStateToProps, { addPost } )(PostsInput);
