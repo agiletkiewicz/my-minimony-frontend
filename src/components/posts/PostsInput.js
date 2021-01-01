@@ -20,26 +20,22 @@ class PostsInput extends React.Component {
     };
   }
 
-  addError = () =>  {
-    this.props.dispatch({ type: 'ADD_ERROR', error: "must include image"})
-  }
-
   handleSubmit = (event) => {
     event.preventDefault();
 
     if (this.state.image === null && this.state.imageUrl === "") {
       this.props.addImageError();
+      return;
     }
 
     const formData = new FormData();
     formData.append('title', this.state.title);
     formData.append('description', this.state.description);
     formData.append('url', this.state.url);
-    
-    if (this.state.uploadImage) {
+    formData.append('imageUrl', this.state.imageUrl);
+
+    if (this.state.image) {
       formData.append('image', this.state.image);
-    } else {
-      formData.append('imageUrl', this.state.imageUrl);
     }
 
     this.props.addPost(formData, this.handleSuccess);
@@ -178,8 +174,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  addPost: () => { dispatch(addPost()) }, 
+  addPost: addPost(), 
   addImageError: () => { dispatch({ type: 'ADD_ERROR', error: "must include image" })}
 })
 
-export default connect(mapStateToProps, mapDispatchToProps )(PostsInput);
+export default connect(mapStateToProps, { addPost } )(PostsInput);
