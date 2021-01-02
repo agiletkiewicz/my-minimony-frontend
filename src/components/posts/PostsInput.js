@@ -24,7 +24,7 @@ class PostsInput extends React.Component {
     event.preventDefault();
 
     if (this.state.image === null && this.state.imageUrl === "") {
-      this.props.addImageError();
+      // this.props.addImageError();
       return;
     }
 
@@ -126,28 +126,6 @@ class PostsInput extends React.Component {
               />
               <br />
               {this.renderImageFormField()}
-              {/* <Form.Label>Upload Image OR provide Image URL</Form.Label> */}
-                  {/* <Form.File id="formcheck-api-regular">
-                  <Form.File.Label>Upload Image OR provide Image URL</Form.File.Label>
-                    <Form.Row className="justify-content-md-center" >
-                      <Col sm={3}>
-                        <Form.File.Input 
-                          name="image" 
-                          accept="image/*" 
-                          onChange={this.handleImage}
-                          className="justify-content-md-center"
-                        />
-                     </Col>
-                  </Form.Row>
-                  </Form.File> */}
-              {/* <input type="file" name="image" accept="image/*" onChange={this.handleImage}/> */}
-                  {/* <Form.Control
-                    type="text"
-                    name="imageUrl"
-                    onChange={this.handleChange}
-                    value={this.state.imageUrl}
-                  /> */}
-
               <br />
               <br />
               <Form.Label>Source URL <i>(optional)</i></Form.Label>
@@ -172,10 +150,5 @@ class PostsInput extends React.Component {
 const mapStateToProps = (state) => ({
   userId: state.user.id,
 });
-
-const mapDispatchToProps = (dispatch) => ({
-  addPost: addPost(), 
-  addImageError: () => { dispatch({ type: 'ADD_ERROR', error: "must include image" })}
-})
 
 export default connect(mapStateToProps, { addPost } )(PostsInput);
