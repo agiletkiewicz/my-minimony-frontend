@@ -8,7 +8,6 @@ import PostsContainer from './containers/PostsContainer';
 import BoardsContainer from './containers/BoardsContainer';
 import UserContainer from './containers/UserContainer';
 import PostsInput from './components/posts/PostsInput';
-import PostShow from './components/posts/PostShow';
 import BoardShow from './components/boards/BoardShow';
 import NavBar from './components/NavBar';
 import Home from './components/Home';
