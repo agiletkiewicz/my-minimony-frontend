@@ -1,5 +1,5 @@
 export const deleteSave = (saveId) => (dispatch) => {
-  fetch(`http://localhost:3000/api/v1/boardspost/${saveId}`, {
+  fetch(`https://my-minimony.herokuapp.com/api/v1/boardspost/${saveId}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',

@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const fetchLoginStatus = () => (dispatch) => {
   axios
-    .get('http://localhost:3000/api/v1/logged_in', { withCredentials: true })
+    .get('https://my-minimony.herokuapp.com/api/v1/logged_in', { withCredentials: true })
     .then((response) => {
       if (response.data.logged_in) {
         dispatch({

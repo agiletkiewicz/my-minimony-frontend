@@ -3,7 +3,7 @@ import axios from 'axios';
 export const addUser = (data, handleSuccess) => (dispatch) => {
   axios
     .post(
-      'http://localhost:3000/api/v1/users',
+      'https://my-minimony.herokuapp.com/api/v1/users',
       { user: data },
       { withCredentials: true }
     )

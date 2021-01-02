@@ -3,7 +3,7 @@ import axios from 'axios';
 export const addBoard = (data) => (dispatch) => {
   axios
     .post(
-      'http://localhost:3000/api/v1/boards',
+      'https://my-minimony.herokuapp.com/api/v1/boards',
       { board: data },
       { withCredentials: true }
     )

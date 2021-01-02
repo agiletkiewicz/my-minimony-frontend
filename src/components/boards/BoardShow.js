@@ -21,7 +21,7 @@ class BoardShow extends Component {
   }
 
   componentDidMount() {
-    fetch(`http://localhost:3000/api/v1/boards/${this.props.boardId}`)
+    fetch(`https://my-minimony.herokuapp.com/api/v1/boards/${this.props.boardId}`)
       .then((resp) => resp.json())
       .then((parsedResp) => {
         this.setState({ posts: parsedResp.posts.data });
