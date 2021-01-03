@@ -21,7 +21,7 @@ class UserContainer extends Component {
   }
 
   deletePost = (postId) => {
-    fetch(`http://localhost:3000/api/v1/posts/${postId}`, {
+    fetch(`https://my-minimony.herokuapp.com/api/v1/posts/${postId}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
