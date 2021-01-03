@@ -9,7 +9,8 @@ A web application created as part of the [Flatiron School's Online Web Developer
 ## Features 🌟
 
 * Browse posts in masonry layout, featuring zoom animation on hover
-* Create account to save posts to custom boards
+* Login to create posts, including image upload option
+* Save posts to custom boards
 * Remain logged in after navigating away or refreshing
 * Return to scroll position when browsing
 * Search posts
