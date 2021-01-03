@@ -36,7 +36,9 @@ A web application created as part of the [Flatiron School's Online Web Developer
 
 ### Get Started
 
-To install:
+Visit https://www.myminimonyapp.com/
+
+Or install:
 
 Fork and clone [Rails API backend](https://github.com/agiletkiewicz/my-minimony-backend):
 * cd my-minimony-backend
