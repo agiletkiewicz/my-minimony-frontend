@@ -10,7 +10,7 @@ import LoggedInNavBar from './users/LoggedInNavBar';
 function NavBar(props) {
 
     return (
-      <Navbar bg="light" expand="lg" sticky="top">
+      <Navbar bg="light" expand="md" sticky="top">
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
