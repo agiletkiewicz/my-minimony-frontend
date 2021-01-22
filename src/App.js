@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { fetchPosts } from './actions/fetchPosts';
 import { fetchLoginStatus } from './actions/fetchLoginStatus';
-import PostsContainer from './containers/postsContainer';
+import PostsContainer from './containers/PostsContainer';
 import BoardsContainer from './containers/BoardsContainer';
 import UserContainer from './containers/UserContainer';
 import PostsInput from './components/posts/PostsInput';

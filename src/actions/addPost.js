@@ -3,7 +3,7 @@ import axios from 'axios';
 export const addPost = (data, handleSuccess) => (dispatch) => {
   axios
     .post(
-      'https://my-minimony.herokuapp.com/api/v1/posts', data,
+      'http://localhost:3000/api/v1/posts', data,
       { withCredentials: true,     
         headers: { 'content-type': 'multipart/form-data' }
       }

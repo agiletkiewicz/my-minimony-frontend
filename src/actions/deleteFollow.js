@@ -1,5 +1,5 @@
 export const deleteFollow = (followId) => (dispatch) => {
-    fetch(`https://my-minimony.herokuapp.com/api/v1/follows/${followId}`, {
+    fetch(`http://localhost:3000/api/v1/follows/${followId}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

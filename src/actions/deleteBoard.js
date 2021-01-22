@@ -1,5 +1,5 @@
 export const deleteBoard = (boardId, handleSuccess) => (dispatch) => {
-  fetch(`https://my-minimony.herokuapp.com/api/v1/boards/${boardId}`, {
+  fetch(`http://localhost:3000/api/v1/boards/${boardId}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',

@@ -1,5 +1,5 @@
 export const followBoard = (boardId, userId) => (dispatch) => {
-    fetch('https://my-minimony.herokuapp.com/api/v1/follows', {
+    fetch('http://localhost:3000/api/v1/follows', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
