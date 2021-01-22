@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Col from 'react-bootstrap/Col';
 
 class SearchBar extends React.Component {
   constructor() {
@@ -40,6 +41,8 @@ class SearchBar extends React.Component {
           onSubmit={this.handleSubmit}
           className="justify-content-md-center"
         >
+          <Form.Row className="align-items-center">
+          <Col xs="auto">
           <Form.Control
             type="text"
             className="mr-sm-2"
@@ -47,14 +50,18 @@ class SearchBar extends React.Component {
             value={this.state.search}
             onChange={this.handleChange}
           />
+          </Col>
+          <Col xs="auto">
           <Button variant="outline-success" type="submit">
             Search
           </Button>
+          </Col>
+          </Form.Row>
         </Form>
         {this.props.search.length > 0 ? (
           <>
             <br />
-            <Button variant="light" type="submit" onClick={this.clearSearch}>
+            <Button class="text-center" variant="light" type="submit" onClick={this.clearSearch}>
               Clear Search
             </Button>
             <br />
