@@ -51,8 +51,7 @@ class PostShow extends React.Component {
       <Container>
         <br />
         <Row>
-          <Col xs={1} />
-          <Col>
+          <Col xs={12} md={6}>
             <Image src={this.props.post.imageUrl} fluid />
           </Col>
           <Col>
