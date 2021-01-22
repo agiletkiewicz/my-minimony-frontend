@@ -11,6 +11,8 @@ function NavBar(props) {
 
     return (
       <Navbar bg="light" expand="lg" sticky="top">
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
           <LinkContainer to="/posts">
             <Nav.Link>Home</Nav.Link>
@@ -27,6 +29,7 @@ function NavBar(props) {
           )}
         </Nav>
         {props.user.isLoggedIn ? null : <Login />}
+      </Navbar.Collapse>
       </Navbar>
     );
 
