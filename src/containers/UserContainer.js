@@ -13,7 +13,7 @@ class UserContainer extends Component {
   }
 
   componentDidMount() {
-    fetch(`https://my-minimony.herokuapp.com/api/v1/users/${this.props.user.id}/posts`)
+    fetch(`http://localhost:3000/api/v1/users/${this.props.user.id}/posts`)
       .then((resp) => resp.json())
       .then((parsedResp) => {
         this.setState({ posts: parsedResp.data });
