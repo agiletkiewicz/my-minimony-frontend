@@ -52,6 +52,7 @@ class PostsContainer extends React.Component {
       );
     }
 
+
     return (
       <div className="posts-container">
         <SearchBar />
