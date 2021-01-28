@@ -8,11 +8,12 @@ export function fetchPosts() {
         dispatch({ type: 'CLEAR_ERROR' });
         dispatch({ type: 'FINISH_LOADING' });
       })
-      .catch((error) =>
+      .catch((error) => {
         dispatch({
           type: 'ADD_ERROR',
           error: 'Something went wrong. Try again.',
-        })
-      );
+        });
+        dispatch({ type: 'FINISH_LOADING' });
+      });
   };
 }
