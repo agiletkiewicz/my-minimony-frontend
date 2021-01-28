@@ -6,9 +6,11 @@ import errorsReducer from './errorsReducer';
 import searchReducer from './searchReducer';
 import savesReducer from './savesReducer';
 import followsReducer from './followsReducer';
+import loadingReducer from './loadingReducer';
 
 
 const rootReducer = combineReducers({
+  loading: loadingReducer,
   posts: postsReducer,
   user: userReducer,
   boards: boardsReducer,
