@@ -64,7 +64,7 @@ class PostsContainer extends React.Component {
 
 const mapStateToProps = (state) => ({
   posts: state.posts,
-  search: state.search,
+  search: state.search
 });
 
 export default connect(mapStateToProps)(PostsContainer);

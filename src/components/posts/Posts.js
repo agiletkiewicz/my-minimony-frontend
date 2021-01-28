@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import CardColumns from 'react-bootstrap/CardColumns';
 import Post from './Post';
 import Spinner from 'react-bootstrap/Spinner';
@@ -6,7 +7,7 @@ import Spinner from 'react-bootstrap/Spinner';
 
 function Posts(props) {
 
-  if (props.posts.length === 0) {
+  if (props.loading) {
     return (
     <Spinner animation="border" role="status">
       <span className="sr-only">Loading...</span>
@@ -22,4 +23,8 @@ function Posts(props) {
   );
 }
 
-export default Posts;
+const mapStateToProps = (state) => ({
+  loading: state.loading
+});
+
+export default connect(mapStateToProps)(Posts);
