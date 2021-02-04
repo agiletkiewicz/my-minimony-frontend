@@ -10,27 +10,27 @@ function Board(props) {
   return (
     <div>
     <Link to={`/boards/${props.board.id}`}>
-      {/* <Card>
+      <Card>
         <Card.Body bsPrefix="board-heading">
           <Card.Text>{props.board.title}</Card.Text>
         </Card.Body>
         <Card.Img src={props.board.image} alt="Card image" />
-      </Card> */}
-      <Card>
-      <Card.Body bsPrefix="board-heading">
-      <Card.Text>{props.board.title}</Card.Text>
-        </Card.Body>
-      <Container>
-        <Row>
-          <Col><Image src={props.board.image} rounded fluid/></Col>
-          <Col><Image src={props.board.image} rounded fluid/></Col>
-        </Row>
-        <Row>
-          <Col><Image src={props.board.image} rounded fluid/></Col>
-          <Col><Image src={props.board.image} rounded fluid/></Col>
-        </Row>
-      </Container>
       </Card>
+      {/* <Card>
+        <Card.Body bsPrefix="board-heading">
+          <Card.Text>{props.board.title}</Card.Text>
+        </Card.Body>
+        <Container>
+          <Row>
+            <Col><Image src={props.board.imageOne} fluid/></Col>
+            <Col><Image src={props.board.imageTwo} fluid/></Col>
+          </Row>
+          <Row>
+            <Col><Image src={props.board.imageThree} fluid/></Col>
+            <Col><Image src={props.board.imageFour} fluid/></Col>
+          </Row>
+        </Container>
+      </Card> */}
     </Link>
     </div>
   );
