@@ -21,9 +21,9 @@ class BoardShow extends Component {
   }
 
   componentDidMount() {
-    fetch(`http:localhost:3000/api/v1/boards/${this.props.boardId}`)
+    fetch(`http://localhost:3000/api/v1/boards/${this.props.boardId}`)
       .then((resp) => resp.json())
-      .then((parsedResp) => {
+      .then((parsedResp) => { 
         this.setState({ posts: parsedResp.posts.data });
         this.setState({ board: parsedResp.board.data.attributes })
       });
