@@ -16,16 +16,21 @@ function Board(props) {
         </Card.Body>
         <Card.Img src={props.board.image} alt="Card image" />
       </Card> */}
+      <Card>
+      <Card.Body bsPrefix="board-heading">
+      <Card.Text>{props.board.title}</Card.Text>
+        </Card.Body>
       <Container>
         <Row>
-          <Col>1 of 3</Col>
-          <Col>3 of 3</Col>
+          <Col><Image src={props.board.image} rounded fluid/></Col>
+          <Col><Image src={props.board.image} rounded fluid/></Col>
         </Row>
         <Row>
-          <Col>1 of 3</Col>
-          <Col>3 of 3</Col>
+          <Col><Image src={props.board.image} rounded fluid/></Col>
+          <Col><Image src={props.board.image} rounded fluid/></Col>
         </Row>
       </Container>
+      </Card>
     </Link>
     </div>
   );
