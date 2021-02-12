@@ -24,7 +24,7 @@ class PostsInput extends React.Component {
     event.preventDefault();
 
     if (this.state.image === null && this.state.imageUrl === "") {
-      // this.props.addImageError();
+      this.props.addImageError();
       return;
     }
 
@@ -151,4 +151,11 @@ const mapStateToProps = (state) => ({
   userId: state.user.id,
 });
 
-export default connect(mapStateToProps, { addPost } )(PostsInput);
+const mapDispatchToProps = dispatch => {
+  return {
+    addPost: () => { dispatch(addPost()) }, 
+    addImageError: () => { dispatch({ type: "ADD_ERROR", error: "Must include an image" }) }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps )(PostsInput);
