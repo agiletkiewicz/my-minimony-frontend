@@ -12,16 +12,16 @@ function Error(props) {
 
   return (
     <Portal>
-    <Alert
-      inline
-      variant="danger"
-      onClose={clearError}
-      dismissible
-    >
-      {props.errors.map((error) => (
-        <p>{error}</p>
-      ))}
-    </Alert>
+      <Alert
+        inline
+        variant="danger"
+        onClose={clearError}
+        dismissible
+      >
+        {props.errors.map((error) => (
+          <p>{error}</p>
+        ))}
+      </Alert>
     </Portal>
   );
     
